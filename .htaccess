@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Jika file atau folder benar-benar ada, tampilkan langsung
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Selain itu, arahkan ke 404.html
+RewriteRule ^ 404.html [L]
