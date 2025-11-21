@@ -1,0 +1,104 @@
+/*============= OTHERS CSS AREA ===============*/
+.others1-section-area{
+    background: $bg18;
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .others1-images{
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .innerpages-content{
+        padding: 0 0 0 50px;
+        @media #{$xs} {
+            padding: 0;
+            margin-top: 30px;
+        }
+        @media #{$md} {
+            padding: 0;
+            margin-top: 30px;
+        }
+        h2{
+            font-family: $font-1;
+            font-size: $heading2_size - 2;
+            line-height: 50px;
+            color: $title-color1;
+            font-weight: $semi-bold;
+            @media #{$xs} {
+                font-size: $heading3_size;
+                line-height: 42px;
+            }
+        }
+        p{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            line-height: 26px;
+            font-weight: $regular;
+            color: $color1;
+        }
+        h4{
+            font-family: $font-1;
+            font-size: $small_font_size + 8;
+            color: $title-color1;
+            font-weight: $semi-bold;
+        }
+    }
+}
+
+.others2-section-area{
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .others1-images{
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .innerpages-content{
+        padding: 0 50px 0;
+        @media #{$xs} {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        @media #{$md} {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        h2{
+            font-family: $font-1;
+            font-size: $heading2_size - 2;
+            line-height: 50px;
+            color: $title-color1;
+            font-weight: $semi-bold;
+            @media #{$xs} {
+                font-size: $heading3_size;
+                line-height: 42px;
+            }
+        }
+        p{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            line-height: 26px;
+            font-weight: $regular;
+            color: $color1;
+        }
+        h4{
+            font-family: $font-1;
+            font-size: $small_font_size + 8;
+            color: $title-color1;
+            font-weight: $semi-bold;
+        }
+    }
+}
+/*============= OTHERS CSS AREA ENDS ===============*/

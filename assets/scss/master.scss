@@ -1,0 +1,62 @@
+/*
+============================
+Name:  Justlaw Law and Attorney Template
+Version: 1.0.0
+Description: Justlaw Law and Attorney Template
+Author: Vikiglab
+Author URI: https://themeforest.net/user/vikinglab/portfolio
+Location:
+============================
+*/
+/*============= VARIABLES CSS AREA  ===============*/
+/*============= TYPHOGRAPHY CSS AREA ===============*/
+/*============= MIXINS CSS AREA ===============*/
+/*============= PRELOADER CSS AREA ===============*/
+/*============= BUTTONS CSS AREA ===============*/
+/*============= BUTTON CSS AREA ===============*/
+/*============= HERO CSS AREA ===============*/
+/*============= COMMON CSS AREA ===============*/
+/*============= ABOUT CSS AREA ===============*/
+/*============= BLOG CSS AREA ===============*/
+/*============= ANIMATION CSS AREA ===============*/
+/*============= CASE CSS AREA ===============*/
+/*============= CHOOSE CSS AREA ===============*/
+/*============= FAQ CSS AREA ===============*/
+/*============= SERVICE CSS AREA ===============*/
+/*============= PROCESS CSS AREA ===============*/
+/*============= TEAM CSS AREA ===============*/
+/*============= TESTIMONIAL CSS AREA ===============*/
+/*============= MOBILE MENU CSS AREA ===============*/
+/*============= CTA CSS AREA ===============*/
+/*============= CONTACT CSS AREA ===============*/
+/*============= OTHERS CSS AREA ===============*/
+/*============= FOOTER CSS AREA ===============*/
+/*============= RTL CSS AREA ===============*/
+
+@import 'typography';
+@import 'variables';
+@import 'responsive'; 
+@import 'common';
+@import 'mixins';
+@import 'components/header';
+@import 'components/buttons';
+@import 'components/hero';
+@import 'components/about';
+@import 'components/service';
+@import 'components/case';
+@import 'components/animation';
+@import 'components/team';
+@import 'components/choose';
+@import 'components/testimonial';
+@import 'components/blog';
+@import 'components//faq';
+@import 'components/footer';
+@import 'components/preloader';
+@import 'components/mobile-menu';
+@import 'components/cta';
+@import 'components/process';
+@import 'components/contact';
+@import 'components/others';
+@import 'components/rtl';
+
+

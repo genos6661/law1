@@ -1,0 +1,240 @@
+/*============= CONTACT CSS AREA ===============*/
+.contact4-section-area{
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .contact4-header-area{
+        @media #{$xs} {
+            margin-bottom: 30px;
+        }
+        @media #{$md} {
+            margin-bottom: 30px;
+        }
+        h2{
+            font-family: $font-1;
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+        .hour-content{
+            margin-top: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid $border6;
+            h4{
+                font-family: $font-1;
+                font-weight: $semi-bold;
+                color: $title-color1;
+                font-size: $small_font_size + 4;
+                line-height: 20px;
+            }
+            ul{
+                margin-top: 16px;
+                display: flex;
+                align-items: center;
+                li{
+                    margin: 0 24px 0 0;
+                    a{
+                        font-family: $font-2;
+                        font-weight: $small_font_size;
+                        color: $color4;
+                        font-weight: $regular;
+                        display: inline-block;
+                        i{
+                            margin: 0 4px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+        .contact-all-area{
+            display: flex;
+            &:hover{
+                .location-img{
+                    background: $bg-color9;
+                    img{
+                        filter: brightness(0) invert(1);
+                        transition: $trans1;
+                    }
+                }
+            }
+            .location-img{
+                height: 50px;
+                width: 50px;
+                text-align: center;
+                line-height: 50px;
+                background: $bg29;
+                border-radius: 50%;
+                transition: $trans1;
+                img{
+                    transition: $trans1;
+                }
+            }
+            .location-text{
+                margin-left: 16px;
+                h4{
+                    font-family: $font-1;
+                    font-weight: $semi-bold;
+                    color: $title-color1;
+                    font-size: $small_font_size + 4;
+                    line-height:30px;
+                }
+                p{
+                    font-family: $font-2;
+                    font-size: $small_font_size;
+                    font-weight: $regular;
+                    color: $color4;
+                    display: inline-block;
+                }
+                a{
+                    font-family: $font-2;
+                    font-size: $small_font_size;
+                    font-weight: $regular;
+                    color: $color4;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    .contact-form-area{
+        background: $bg-color10;
+        border-radius: 8px;
+        padding: 24px;
+
+        .contact-input-area{
+            h4{
+                font-family: $font-1;
+                font-size: $small_font_size + 4;
+                line-height: 20px;
+                font-weight: $semi-bold;
+                color: $title-color1;
+            }
+            input{
+                height: 56px;
+                border: 1px solid $border6;
+                padding: 20px 16px;
+                border-radius: 8px;
+                background: none;
+                &::placeholder{
+                    color: $color4;
+                    font-family: $font-2;
+                    font-weight: $regular;
+                    opacity: 0.7;
+                }
+            }
+            textarea{
+                height: 168px;
+                border: 1px solid $border6;
+                padding: 20px 16px;
+                border-radius: 8px;
+                background: none;
+                &::placeholder{
+                    color: $color4;
+                    font-family: $font-2;
+                    font-weight: $regular;
+                    opacity: 0.7;
+                }
+            }
+            button{
+                outline: none;
+                border: none;
+            }
+        }
+    }
+}
+.contact4-section-area.inner{
+    background: $bg18;
+    .contact-all-area{
+        &:hover{
+            .location-img{
+                background: $bg-color2;
+
+            }
+        }
+        .location-img{
+            background: $bg-color1;
+        }
+        .location-text{
+            a{
+                color: $color1 !important;
+            }
+            p{
+                color: $color1;
+            }
+        }
+    }
+    .contact-form-area{
+        background: $color-w;
+        box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.08);
+        .contact-input-area{
+            .theme-btn1{
+                background: $bg-color2;
+                color: $color-w;
+                border-radius: 35px;
+                transition: $trans1;
+                &:hover{
+                    background: $bg-color1;
+                    color: $color-w;
+                    transition: $trans1;
+                }
+            }
+        }
+    }
+}
+
+.contact4-section-area.inner2{
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .contact-all-area{
+        &:hover{
+            .location-img{
+                background: $bg-color2;
+
+            }
+        }
+        .location-img{
+            background: $bg-color1;
+        }
+        .location-text{
+            a{
+                color: $color1 !important;
+            }
+            p{
+                color: $color1;
+            }
+        }
+    }
+    .contact-form-area{
+        background: $color-w;
+        box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.08);
+        .contact-input-area{
+            .theme-btn1{
+                background: $bg-color2;
+                color: $color-w;
+                border-radius: 35px;
+                &:hover{
+                    background: $bg-color1;
+                    color: $color-w;
+                }
+            }
+        }
+    }
+}
+.map-section-area{
+    .mapouter{
+       .gmap_canvas{
+        iframe{
+            width: 100%;
+            height: 565px;
+        }
+       } 
+    }
+}
+/*============= CONTACT CSS AREA ===============*/

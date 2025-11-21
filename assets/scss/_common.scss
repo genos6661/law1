@@ -1,0 +1,268 @@
+/*============= COMMON CSS AREA ===============*/  
+
+  .hadding1 {
+    span.span {
+        color: $title-color1;
+        font-size: $small_font_size + 2;
+        font-style: normal;
+        font-weight: $medium;
+        line-height: 18px;
+        border: 1px solid $color1;
+        padding: 4px 14px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        color: $title-color1;
+        font-family: $font-1;
+        font-size: $heading2_size - 2;
+        font-style: normal;
+        font-weight: $semi_bold;
+        line-height: 48px;
+        text-transform: capitalize;
+        @media #{$xs} {
+          font-size: $heading3_size;
+          line-height: 40px;
+        }
+        @media #{$md} {
+          font-size: $heading3_size;
+          line-height: 40px;
+        }
+        
+    }
+    h2 {
+      color: $title-color1;
+      font-family: $font-1;
+      font-size: $heading2_size - 2;
+      font-style: normal;
+      font-weight: $semi_bold;
+      line-height: 48px;
+      text-transform: capitalize;
+      @media #{$xs} {
+        font-size: $heading3_size;
+        line-height: 40px;
+      }
+      @media #{$md} {
+        font-size: $heading3_size;
+        line-height: 40px;
+      }
+      
+  }
+    
+    h4 {
+      a {
+        color: $title-color1;
+        text-align: center;
+        font-size: $small_font_size + 4;
+        font-style: normal;
+        font-weight: $semi-bold;
+        line-height: 20px;
+      }
+    }
+
+    p {
+        color: $color1;
+        font-size: $small_font_size;
+        font-style: normal;
+        font-weight: $regular;
+        line-height: 28px;
+        span.w {
+            font-size: $heading2_size - 2;
+            color: $title-color1;
+            line-height: 28px;
+        }
+    }
+
+    .bottom-hadding {
+        h2 {
+            color: $title-color1;
+            font-size: $heading2_size - 2;
+            font-style: normal;
+            font-weight: $regular;
+            line-height: 40px;
+            text-transform: capitalize;
+        }
+    }
+  }
+
+
+  .hadding2 {
+    span.span {
+      color: $bg-color3;
+      font-size: $small_font_size + 2;
+      font-style: normal;
+      font-weight: $medium;
+      line-height: 18px;
+      border-radius: 4px;
+      background: $bg12;
+      padding: 4px 8px;
+    }
+    h1 {
+      color: $title-color1;
+      font-family: $font-1;
+      font-size: $heading2_size - 2;
+      font-style: normal;
+      font-weight: $semi-bold;
+      line-height: 48px;
+      text-transform: capitalize;
+    }
+    p {
+      color: $pera-color1;
+      font-size: $small_font_size;
+      font-style: normal;
+      font-weight: $regular;
+      line-height: 28px;
+      transition: $trans1;
+    }
+    h4 {
+      a {
+        color: $title-color1;
+        font-family: $font-1;
+        font-size: $heading4_size;
+        font-style: normal;
+        font-weight: $semi-bold;
+        line-height: 24px;
+        transition: $trans1;
+      }
+    }
+  }
+
+  .hadding2-w {
+    span.span {
+      color: $bg-color3;
+      font-size: $small_font_size + 2;
+      font-style: normal;
+      font-weight: $medium;
+      line-height: 18px;
+      background: $color-w;
+      border-radius: 5px;
+      padding: 4px 12px;
+    }
+    h1 {
+      color: $color-w;
+      font-family: $font-1;
+      font-size: $heading2_size - 2;
+      font-style: normal;
+      font-weight: $semi-bold;
+      line-height: 48px;
+      text-transform: capitalize;
+    }
+    p {
+      color: $color-w;
+      text-align: center;
+      font-size: $small_font_size;
+      font-style: normal;
+      font-weight: $regular;
+      line-height: 28px;
+    }
+  }
+
+  .hadding3 {
+    h1 {
+      color: $title-color1;
+      font-family: $font-1;
+      font-size: $heading2_size - 2;
+      font-style: normal;
+      font-weight: $semi-bold;
+      line-height: 48px;
+      text-transform: capitalize;
+      span {
+        display: inline-block;
+        position: relative;
+        img {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      @media #{$md} {
+        font-size: $heading3_size;
+        line-height: 40px;
+    }
+    }
+
+    p {
+      color: $title-color1;
+      font-size: $small_font_size;
+      font-style: normal;
+      font-weight: $regular;
+      line-height: 28px;
+      font-family: $font-2;
+    }
+  }
+  
+  .headding4 {
+    span.span {
+      color: $title-color1;
+      font-size: $small_font_size;
+      font-style: normal;
+      font-weight: $medium;
+      line-height: 16px;
+      border-radius: 4px;
+      background: $bg13;
+      font-family: $font-2;
+      padding: 8px 10px;
+      display: inline-block;
+      margin-bottom: 16px;
+      img{
+        margin-top: -3px;
+        margin: 0 4px 0 0;
+      }
+    }
+
+    h2 {
+      color: $title-color1;
+      font-family: $font-1;
+      font-size: $heading2_size - 2;
+      font-style: normal;
+      font-weight: $semi-bold;
+      line-height: 48px;
+      text-transform: capitalize;
+      @media #{$md} {
+        font-size: $heading3_size;
+        line-height: 40px;
+    }
+
+    @media #{$xs} {
+      font-size: $heading3_size;
+      line-height: 40px;
+  }
+    }
+
+    p {
+      color: $color2;
+      font-size: $small_font_size;
+      font-style: normal;
+      font-weight: $regular;
+      line-height: 28px;
+      font-family: $font-2;
+    }
+
+  }
+  .body4.rtl-body{
+    .headding4 {
+      span.span {
+        color: $title-color1;
+        font-size: $small_font_size;
+        font-style: normal;
+        font-weight: $medium;
+        line-height: 16px;
+        border-radius: 4px;
+        background: $bg13;
+        font-family: $font-2;
+        padding: 8px 10px;
+        display: inline-block;
+        margin-bottom: 16px;
+        img{
+          margin-top: -3px;
+          margin: 0 0 0 4px;
+        }
+      }
+    }
+  }
+
+  /*============= COMMON CSS AREA ENDS ===============*/
+
+  
+  

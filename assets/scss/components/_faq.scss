@@ -1,0 +1,199 @@
+/*============= FAQ CSS AREA ===============*/
+
+// HOMEPAGE2 FAQ STARTS //
+.faq {
+    background-color: $bg-color3;
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .accordion-hadding {
+        padding-left: 30px;
+        @media #{$md} {
+            padding-left: 0;
+            margin-top: 40px;
+        }
+        @media #{$xs} {
+            padding-left: 0;
+            margin-top: 40px;
+        }
+        h1{
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+        .faq-images._relative{
+            .faq-img.faqspace{
+                @media #{$xs} {
+                    margin-bottom: 30px;
+                }
+                @media #{$md} {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .accordion{
+           .accordion-item{
+            background: $color-w;
+            border-radius: 10px;
+                h2{
+                    button{
+                        box-shadow: none;
+                        outline: none;
+                        color: $title-color1;
+                        font-family: $font-1;
+                        font-size: $small_font_size + 4;
+                        font-style: normal;
+                        font-weight: $semi_bold;
+                        line-height: 18px;
+                        border-radius: 10px;
+                        background: none;
+                        &::after{
+                            filter: brightness(0);
+                            font-weight: bolder;
+                        }
+                    }
+                }
+                .accordion-body2{
+                    color: $title-color1;
+                    font-family: $font-2;
+                    font-size: $small_font_size;
+                    font-style: normal;
+                    font-weight: $regular;
+                    line-height: 28px;   
+                    opacity: 0.7;   
+                    margin-top: -16px;            
+                }
+           } 
+        }
+    }
+    .choose2-shape {
+        position: absolute;
+        top: 90px;
+        left: -40px;
+    }
+}
+// HOMEPAGE2 FAQ ENDS //
+
+// HOMEPAGE3 FAQ STARTS //
+.faq3 {
+    padding-bottom: 100px;
+
+    @media #{$md} {
+        padding-bottom: 50px;
+    }
+    @media #{$xs} {
+        padding-bottom: 50px;
+    }
+    .hadding3{
+        h1{
+            font-family: $font-1;
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                 line-height: 40px;
+             }
+        }
+        p{
+            color: $title-color1;
+            font-family:$font-2 ;
+            opacity: 0.8;
+        }
+    }
+    .accordion {
+        padding-left: 60px;
+
+        @media #{$md} {
+            padding-left: 0;
+            padding-top: 30px;
+        }
+        @media #{$xs} {
+            padding-left: 0;
+            padding-top: 30px;
+        }
+        .accordion-item {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            
+            .accordion-header {
+                button {
+                    padding: 24px 0;
+                    background: none;
+                    border-top: 1px solid $border2;
+                    color: $title-color1;
+                    font-family: $font-1;
+                    font-size: $heading4_size;
+                    font-style: normal;
+                    font-weight: $semi-bold;
+                    line-height: 24px;
+                    box-shadow: none;
+                    border: none;
+                    @media #{$xs} {
+                        font-size: $small_font_size + 4;
+                         line-height: 30px;
+                     }
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+            .accordion-body {
+                padding: 0 0 30px 0;
+                margin-top: 0;
+                color: $title-color1;
+                font-size: $small_font_size;
+                font-style: normal;
+                font-family: $font-2;
+                font-weight: $regular;
+                line-height: 28px;
+                opacity: 0.8;
+            }
+
+            .accordion-button {
+                &::after {
+                    flex-shrink: 0;
+                    width: 16px;
+                    height: 2px;
+                    margin-left: auto;
+                    content: "";
+                    background-color: $color-w;
+                    background-repeat: no-repeat;
+                    background-size: var(--bs-accordion-btn-icon-width);
+                    transition: var(--bs-accordion-btn-icon-transition);
+                    filter: brightness(0);
+                    z-index: 9;
+                    position: absolute;
+                    right: 22px;
+                }
+                &::before {
+                    flex-shrink: 0;
+                    width: 2px;
+                    height: 16px;
+                    margin-left: auto;
+                    content: "";
+                    background-color: $color-w;
+                    background-repeat: no-repeat;
+                    background-size: var(--bs-accordion-btn-icon-width);
+                    transition: var(--bs-accordion-btn-icon-transition);
+                    filter: brightness(0);
+                    position: absolute;
+                    right: 29px;
+                    z-index: 9;
+                    display: none;
+                }
+            }
+        }
+    }
+.accordion-button.collapsed.accordion-button::before {
+    display: block;
+}
+
+}
+
+// HOMEPAGE3 FAQ ENDS //
+
+/*============= FAQ CSS AREA ENDS ===============*/
+

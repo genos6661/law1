@@ -1,0 +1,371 @@
+/*============= CHOOSE CSS AREA ===============*/
+
+// HOMEPAGE1 STARTS //
+.chosse1 {
+    padding-bottom: 160px;
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .counter-boxs {
+        text-align: end;
+        margin-top: -180px;
+        .counter-box {
+            border-radius: 4px;
+            background: $color-w;
+            box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            width: 180px;
+            text-align: center;
+            display: inline-block;
+            margin-right: 24px;
+            transition: $trans1;
+            h1{
+                font-family: $font-1;
+                transition: $trans1;
+                font-weight: 600;
+            }
+            @media #{$xs} {
+                margin-bottom: 30px;
+            }
+            &:hover {
+                background-color: $bg-color2;
+                transition: $trans1;
+                transform: translateY(-5px);
+                h1 {
+                    color: $color-w;
+                    transition: $trans1;
+                    font-family: $font-1;
+                }
+                p {
+                    color: $color-w;
+                    font-family: $font-2;
+                    transition: $trans1;
+                }
+            }
+            .h1 {
+                color: $title-color1;
+                font-size: $heading5_size + 4;
+                font-style: normal;
+                font-weight: $medium;
+                line-height: 60px;
+                transition: $trans1;
+            }
+            p {
+                color: $title-color1;
+                font-size: $small_font_size;
+                font-style: normal;
+                font-family: $font-2;
+                font-weight: $regular;
+                line-height: 16px;
+                transition: $trans1;
+            }
+
+            
+        }
+    }
+    .choose-list {
+        li {
+            color: $title-color1;
+            font-size: $small_font_size + 2;
+            font-style: normal;
+            font-weight: $medium;
+            line-height: 18px;
+            padding: 11px 0;
+            span {
+                display: inline-block;
+                margin-right: 12px;
+            }
+        }
+    }
+    @media #{$md} {
+        .hadding1 {
+            margin-top:  100px;
+        }
+    }
+    
+}
+
+// HOMEPAGE1 ENDS //
+
+// HOMEPAGE2 STARTS //
+
+.choose2 {
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .hadding2{
+        h1{
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+    }
+    .choose2-images {
+        position: relative;
+        height: 600px;
+        margin-left: 80px;
+        @media #{$md} {
+            margin-left: 0;
+            margin-top: 30px;
+        }
+        @media #{$xs} {
+            margin-left: 0;
+            margin-top: 30px;
+            height: 780px;
+        }
+        .img1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .img2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .img3 {
+            position: absolute;
+            top: -40px;
+            right: -30px;
+        }
+    }
+    .hadding2{
+        p{
+            font-family: $font-2;
+            font-weight: $regular;
+            color: $title-color1;
+            opacity: 0.7 !important;
+        }
+    }
+}
+
+// HOMEPAGE2 ENDS //
+
+// HOMEPAGE3 STARTS //
+.work3 {
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $bg-color6;
+        z-index: -6;
+    }
+    .hadding3{
+        h1{
+            font-family: $font-1;
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+    }
+
+    .work-box {
+        padding: 24px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        margin-top: 30px;
+        transition: $trans1;
+        .work-icon {
+            margin-bottom: 40px;
+            img {
+                filter: brightness(40);
+                transition: $trans1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background: $bg-color5;
+                z-index: -1;
+                border-radius: 50%;
+                left: -10px;
+                top: -10px;
+                transition: $trans1;
+                transform: translateX(-100px) translateY(-100px);
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: $bg-color5;
+            z-index: -3;
+            border-radius: 20px;
+            transition: $trans1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            background: $bg-color7;
+            z-index: -2;
+            border-radius: 50%;
+            left: -10px;
+            top: -10px;
+            transition: $trans1;
+        }
+
+        &:hover {
+            transition: $trans1;
+            &::before {
+                transition: $trans1;
+                height: 100%;
+                width: 100%;
+                border-radius: 20px;
+                left: 0;
+                top: 0;
+            }
+
+            .work-icon {
+                margin-bottom: 40px;
+                img {
+                    filter: none;
+                    transition: $trans1;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 100px;
+                    width: 100px;
+                    background: $bg-color5;
+                    z-index: -1;
+                    border-radius: 50%;
+                    left: -10px;
+                    top: -10px;
+                    transition: $trans1;
+                    transform: translateX(0) translateY(0);
+                }
+            }
+
+        }
+
+        .hadding {
+            h4 {
+                a {
+                    color: $title-color1;
+                    font-family: $font-1;
+                    font-size: $heading4_size;
+                    font-style: normal;
+                    font-weight: $semi-bold;
+                    line-height: 24px;
+                }
+            }
+            p {
+                color: $title-color1;
+                opacity: 0.8;
+                font-family: $font-2;
+                font-size: $small_font_size;
+                font-style: normal;
+                font-weight: $regular;
+                line-height: 28px;
+            }
+        }
+    }
+}
+
+// HOMEPAGE3 ENDS //
+
+// HOMEPAGE5 STARTS //
+.choose6-section-area{
+    padding: 100px 0 265px;
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 220px;
+    }
+    .choose6-header{
+        @media #{$xs} {
+            margin-bottom: 30px;
+        }
+        @media #{$md} {
+            margin-bottom: 30px;
+        }
+        span.header{
+            display: inline-block;
+            font-family: $font-2;
+            font-weight: $medium;
+            color: $color8;
+            font-size: $small_font_size;
+            background: $bg36;
+            line-height: 16px;
+            padding: 8px 12px;
+            border-radius: 20px;
+          }
+          h2{
+            font-size: $heading2_size - 2;
+            line-height: 50px;
+            font-weight: $semi-bold;
+            color: $title-color1;
+            font-family: $font-1;
+            @media #{$xs} {
+              font-size: $heading3_size - 2;
+              line-height: 40px;
+            }
+        }
+        p{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            line-height: 26px;
+            font-weight: $regular;
+            color: $color2;
+        }
+    }
+    .choose-images{
+        position: relative;
+        .img1{
+            @media #{$xs} {
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .img2{
+            position: absolute;
+            bottom: -165px;
+            left: 20%;
+            @media #{$xs} {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+// HOMEPAGE5 ENDS //
+
+/*============= CHOOSE CSS AREA ENDS ===============*/

@@ -1,0 +1,250 @@
+/*============= TEAM CSS AREA ===============*/
+
+// HOMEPAGE2 TEAM AREA STARTS //
+
+.team2 {
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .hadding2{
+        h1{
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+    }
+    .team2-box {
+        border: 1px solid $border3;
+        border-radius: 5px;
+        margin-top: 30px;
+        .img {
+            overflow: hidden;
+            border-radius: 5px 5px 0px 0px;
+            img {
+                transition: $trans1;
+            }
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2%;
+                width: 100%;
+                background-color: $bg-color3;
+                transition: $trans2;
+                opacity: 0.8;
+            }
+        }
+
+        .hadding {
+            padding: 16px;
+            h4 {
+                a {
+                    color: $title-color1;
+                    font-size: $heading4_size;
+                    font-style: normal;
+                    font-weight: $semi-bold;
+                    line-height: 24px;
+                    text-transform: capitalize;
+                    transition: $trans1;
+                    font-family: $font-1;
+                    &:hover {
+                        color: $bg-color3;
+                        transition: $trans1;
+                    }
+                }
+            }
+            p {
+                color: $title-color1;
+                font-size: $small_font_size;
+                font-style: normal;
+                font-family: $font-2;
+                font-weight: $regular;
+                line-height: 16px;
+                text-transform: capitalize;
+                padding-top: 3px;
+                opacity: 0.7;
+            }
+            .team-icon {
+                padding-top: 16px;
+                li {
+                    display: inline-block;
+                    margin: 0px 3px;
+                    a {
+                        display: inline-block;
+                        height: 28px;
+                        width: 28px;
+                        line-height: 28px;
+                        text-align: center;
+                        border: 1px solid $border4;
+                        color: $title-color1;
+                        border-radius: 50%;
+                        transition: $trans1;
+                        &:hover {
+                            background-color: $bg-color3;
+                            color: $color-w;
+                            transition: $trans1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .img {
+                img {
+                    transition: $trans1;
+                    transform: scale(1.1) rotate(4deg);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-color: $bg-color3;
+                    transition: $trans1;
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}
+
+// HOMEPAGE2 TEAM AREA ENDS //
+
+// TEAMINNER //
+.team2.inner{
+    .team2-box{
+        margin-top: inherit;
+        margin-bottom: 30px;
+        .img{
+            &::after{
+                background: $bg-color2;
+            }
+        }
+        .hadding{
+            a{
+                &:hover{
+                    color: $bg-color2;
+                }
+            }
+        }
+        .team-icon{
+            ul{
+                li{
+                    a{
+                        &:hover{
+                            background: $bg-color2;
+                            color: $color-w;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.team-details-section{
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+   .team-details-area{
+    background: $bg-color1;
+    padding: 32px;
+    border-radius: 4px;
+    .img1{
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+    .team-content{
+        padding: 0 0 0 30px;
+        @media #{$xs} {
+            padding: 0;
+            margin-top: 30px;
+        }
+        @media #{$md} {
+            padding: 0;
+            margin-top: 30px;
+        }
+        h3{
+            font-family: $font-1;
+            font-size: $heading3_size;
+            line-height: 40px;
+            font-weight: $semi-bold;
+            color: $title-color1;
+        }
+        span{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            font-weight: $regular;
+            color: $title-color1;
+            display: inline-block;
+        }
+        p{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            color: $color1;
+            font-weight: $regular;
+        }
+        .content{
+            display: flex;
+            align-items: center;
+            h4{
+                font-family: $font-1;
+                font-size: $small_font_size + 4;
+                font-weight: $semi-bold;
+                color: $title-color1;
+            }
+            p{
+                font-size: $small_font_size;
+                font-family: $font-2;
+                font-weight: $regular;
+                color: $color1;
+            }
+            a{
+                font-family: $font-2;
+                font-size: $small_font_size;
+                font-weight: $regular;
+                color: $color1;
+                display:inline-block ;
+            }
+            ul{
+                li{
+                    display: inline-block;
+                    a{
+                        height: 28px;
+                        width: 28px;
+                        text-align: center;
+                        display: inline-block;
+                        border: 1px solid $bg-color2;
+                        border-radius: 50%;
+                        color: $bg-color2;
+                        transition: $trans1;
+                        &:hover{
+                            background: $bg-color2;
+                            color: $color-w;
+                            transition: $trans1;
+                            transform: translateY(-3px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+   } 
+}
+
+/*============= TEAM CSS AREA ENDS===============*/

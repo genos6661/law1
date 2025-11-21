@@ -1,0 +1,145 @@
+/*============= ANIMATION CSS AREA ===============*/
+
+
+@keyframes animation-1 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(1000deg);
+    }
+  }
+  
+  @keyframes animation-2 {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes animation-3 {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(20px);
+    }
+  }
+
+  @keyframes animation-4 {
+    0% {
+      transform: translateX(0) rotate(0);
+    }
+
+    100% {
+      transform: translateX(20px) rotate(45deg);
+    }
+  }
+
+  @keyframes animation-7 {
+    0% {
+      
+      transform:rotate(0) ;
+    }
+
+    100% {
+    
+      transform: rotate(-1000deg);
+    }
+}
+
+
+  .aniamtion-key-1 {
+    position: relative;
+    animation-name: animation-1;
+    animation-duration: 34s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.59, 0.59, 1, 1);
+  }
+
+  .aniamtion-key-2 {
+    position: relative;
+    animation-name: animation-2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.59, 0.59, 1, 1);
+  }
+
+  .aniamtion-key-3 {
+    position: relative;
+    animation-name: animation-3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.59, 0.59, 1, 1);
+  }
+
+  .aniamtion-key-4 {
+    position: relative;
+    animation-name: animation-4;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.59, 0.59, 1, 1);
+  }
+
+.keyframe5 {
+    position: relative;
+    animation-name: animation-7;
+    animation-duration: 150s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.59, 0.59, 1, 1)
+}
+
+@-webkit-keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translatex(-100%); }
+  }
+  @keyframes marquee-2 {
+  0% { transform: translateX(-100%); }
+  100% { transform: translatex(0); }
+  }
+  
+  @keyframes preloader {
+    0% {
+      transform: scale(0, 0);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1, 1);
+      opacity: 0;
+    }
+  }
+/*============= ANIMATION CSS AREA ENDS ===============*/

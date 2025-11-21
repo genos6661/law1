@@ -1,0 +1,686 @@
+/*============= ABOUT CSS AREA ===============*/
+
+// HOMEPAGE1 ABOUT STARTS //
+.about1 {
+  @media #{$xs} {
+    padding: 50px 0 50px;
+}
+@media #{$md} {
+    padding: 50px 0 50px;
+}
+    .about1-image {
+        margin: 0px 20px;
+        @media #{$md} {
+            margin: 30px 0px;
+        }
+        @media #{$xs} {
+            margin: 30px 0px;
+        }
+    }
+}
+
+.cs_case_study_1_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  @media #{$md} {
+    .cs_case_study_1_list {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+  }
+  .cs_case_study_1_list > .cs_case_study.cs_style_1 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .cs_case_study_1_list {
+    .cs_case_study.cs_style_1 {
+      min-height: 400px;
+    }
+  }
+  .cs_case_study_1_list {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_in {
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        left: 80px;
+        opacity: 0;
+      }
+     }
+  }
+
+  @media #{$md} {
+    .cs_case_study_1_list {
+      .cs_case_study.cs_style_1 {
+        .cs_case_study_in {
+          left: 0;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .cs_case_study_1_list {
+    .cs_case_study.cs_style_1 {
+      &.active{
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+      }
+    }
+  }
+  .cs_case_study_1_list {
+    .cs_case_study.cs_style_1.active {
+      .cs_case_study_in {
+        opacity: 1;
+        left: 0;
+        -webkit-transition: all 0.6s ease;
+        transition: all 0.6s ease;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+     }
+  }
+  .cs_case_study_1_list {
+    .cs_case_study.cs_style_1.active {
+      .cs_case_study_icon {
+        -webkit-transform: scale(0) rotate(360deg);
+        transform: scale(0) rotate(360deg);
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+      }
+    }
+  }
+  
+  .cs_case_study.cs_style_1 {
+    height: 700px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  @media #{$xl} {
+    .cs_case_study.cs_style_1 {
+      height: 600px;
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_title {
+      a {
+        text-decoration: none;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+        background-image: linear-gradient(currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        background-size: 100% 3px;
+      }
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_number {
+      left: 70px;
+      top: 70px;
+      z-index: 1;
+    }
+  }
+  @media #{$md} {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_number {
+        left: 30px;
+        top: 40px;
+      }
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_category {
+      margin-bottom: 15px;
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_thumb {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_in {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 88px 72px;
+    }
+  }
+  @media #{$xl} {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_in {
+        padding: 50px;
+      }
+    }
+  }
+  @media #{$md} {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_in {
+        padding: 30px;
+      }
+    }
+  }
+  .cs_case_study.cs_style_1 {
+    .cs_case_study_icon {
+      left: 70px;
+      bottom: 86px;
+      z-index: 1;
+      background-color: $bg14;
+      color: $color-w;
+      height: 55px;
+      width: 55px;
+      font-size: $small_font_size + 4;
+      -webkit-transition: all 0.6s ease;
+      transition: all 0.6s ease;
+    }
+  }
+  @media #{$xl} {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_icon {
+        left: 40px;
+        bottom: 50px;
+      }
+    }
+  }
+  @media #{$md} {
+    .cs_case_study.cs_style_1 {
+      .cs_case_study_icon {
+        display: none;
+      }
+    }
+  }
+  
+  .cs_case_study_thumb {
+    background-image: url(../img/image/about2-img1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .cs_case_study_thumb.cs_case_study_thumb2 {
+    background-image: url(../img/image/about2-img2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .cs_case_study_thumb.cs_case_study_thumb3 {
+    background-image: url(../img/image/about2-img1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .cs_case_study.cs_style_1.cs_hover_active {
+    margin: 0px 8px;
+    border-radius: 5px;
+    height: 550px;
+    @media #{$md} {
+      margin-bottom: 24px;
+    }
+  }
+
+// HOMEPAGE1 ABOUT ENDS //
+
+// HOMEPAGE2 ABOUT STARTS //
+  .about2 {
+    @media #{$xs} {
+      padding: 50px 0 50px;
+    }
+    @media #{$md} {
+      padding: 50px 0 50px;
+    }
+    .about2-hadding{
+      h1{
+        @media #{$xs} {
+          font-size: $heading3_size - 2;
+          line-height: 40px;
+        }
+      }
+    }
+    .about2-box {
+        display: flex;
+        align-items: center;
+        padding-top: 30px;
+        .icon {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: $bg15;
+            border-radius: 50%;
+        }
+        a {
+            color: $title-color1;
+            font-size: $small_font_size + 4;
+            font-style: normal;
+            font-weight: $medium;
+            line-height: 20px;
+            display: inline-block;
+            margin-left: 16px;
+        }
+    }
+
+    .about2-hadding {
+        padding-left: 30px;
+
+        @media #{$md} {
+            padding-left: 0;
+            padding-top: 30px;
+        }
+        @media #{$xs} {
+            padding-left: 0;
+            padding-top: 30px;
+        }
+        p{
+          font-family: $font-2;
+          font-weight: $regular;
+          color: $title-color1;
+          opacity: 0.7 !important;
+        }
+    }
+  }
+
+// HOMEPAGE2 ABOUT ENDS //
+
+// HOMEPAGE3 ABOUT STARTS //
+.about3 {
+  @media #{$md} {
+    padding: 50px 0 50px;
+  }
+  @media #{$xs} {
+    padding: 50px 0 50px;
+  }
+    .about3-images {
+        position: relative;
+        margin-right: -150px;
+        @media #{$md} {
+            margin-right: 0;
+        }
+        @media #{$xs} {
+            margin-right: 0;
+        }
+        .img2 {
+            position: absolute;
+            top: 0px;
+            right: -70px;
+
+            @media #{$md} {
+                right: 0;
+            }
+
+            @media #{$xs} {
+                right: 0;
+            }
+        }
+    }
+    .about3-hadding {
+        background-color: $bg-color7;
+        border-radius: 20px;
+        padding: 30px;
+        position: relative;
+        z-index: 2;
+        @media #{$md} {
+            margin-top: 30px;
+        }
+
+        @media #{$xs} {
+            margin-top: 30px;
+        }
+        h1{
+          @media #{$xs} {
+            font-size: $heading3_size - 2;
+            line-height: 42px;
+          }
+        }
+        p{
+          font-family: $font-2;
+          font-weight: $regular;
+          color: $title-color1;
+          opacity: 0.8;
+        }
+    }
+}
+
+// HOMEPAGE3 ABOUT ENDS //
+
+// HOMEPAGE4 ABOUT STARTS //
+
+.about4 {
+  @media #{$xs} {
+    padding: 50px 0 50px;
+  }
+  @media #{$md} {
+    padding: 50px 0 50px;
+  }
+    .about4-all-headding {
+      padding-left: 30px;
+      @media #{$md} {
+        padding-left: 0;
+        padding-top: 30px;
+      }
+      @media #{$xs} {
+        padding-left: 0;
+        padding-top: 30px;
+      }
+      .headding4{
+        h2{
+          @media #{$xs} {
+            font-size: $heading3_size - 2;
+            line-height: 40px;
+          }
+        }
+      }
+
+      .after-bg-area {
+        position: relative;
+        border-radius: 5px;
+        background:$bg13;
+        padding: 20px 24px;
+        margin-top: 30px;
+
+        p {
+          color: $color4;
+          font-size: $small_font_size;
+          font-style: normal;
+          font-family: $font-2;
+          font-weight: $regular;
+          line-height: 28px;
+          position: relative;
+          z-index: 9;
+          transition: all .4s;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 2%;
+          background-color: $bg-color9;
+          border-radius: 5px;
+          transition: all .4s;
+        }
+      }
+    }
+}
+
+// HOMEPAGE4 ABOUT ENDS //
+
+// HOMEPAGE5 ABOUT STARTS //
+.about5-section-area{
+  padding: 150px 0 200px;
+  @media #{$xs} {
+    padding: 100px 0 50px;
+  }
+  @media #{$md} {
+    padding: 100px 0 50px;
+  }
+  .about-images-area{
+    position: relative;
+    &:hover{
+      .about-widget-img2{
+        &::after{
+          left: 0;
+          top: 0;
+          transition: $trans1;
+        }
+      }
+    }
+    .about-widget-img{
+      img{
+        border-radius: 4px 0 4px 4px;
+        width: 502px;
+        height: 438px;
+        object-fit: cover;
+        @media #{$md} {
+          width: 562px;
+        }
+      }
+    }
+    .about-widget-img2{
+      position: absolute;
+      bottom: -100px;
+      right: 0;
+      z-index: 1;
+      &:hover{
+        &::after{
+          left: 0;
+          top: 0;
+          transition: $trans1;
+        }
+      }
+      &::after{
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: $color7;
+        border-radius: 5px;
+        left: -15px;
+        top: -15px;
+        z-index: -1;
+        transition: $trans1;
+      }
+      img{
+        height: 320px;
+        width: 270px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+    }
+    .experiance-text{
+      background: $color7;
+      text-align: center;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 0 5px 5px 0;
+      padding: 24px 16px;
+      width: 134px;
+      h3{
+        font-size: $heading2_size + 6;
+        line-height: 48px;
+        font-weight: $semi-bold;
+        font-family: $font-1;
+        color: $color-w;
+      }
+      p{
+        font-family: $font-2;
+        font-size: $small_font_size + 2;
+        line-height: 28px;
+        color: $color-w;
+        font-weight: $regular;
+        margin-top: 10px;
+      }
+    }
+  }
+  .about5-textarea{
+    padding: 0 0 0 50px;
+    @media #{$xs} {
+      padding: 0;
+      margin-top: 130px;
+    }
+    @media #{$md} {
+      padding: 0;
+      margin-top: 130px;
+    }
+    span.about{
+      background: $bg31;
+      font-size: $small_font_size;
+      font-weight: $medium;
+      line-height: 16px;
+      color: $color7;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    h2{
+      font-family: $font-1;
+      font-weight: $semi-bold;
+      color: $color6;
+      font-size: $heading2_size - 2;
+      line-height: 50px;
+      @media #{$xs} {
+        font-size: $heading3_size - 2;
+        line-height: 40px;
+      }
+    }
+    p{
+      font-family: $font-2;
+      font-size: $small_font_size;
+      line-height: 26px;
+      font-weight: $regular;
+      color: $color6;
+      opacity: 0.7 !important;
+    }
+  }
+}
+// HOMEPAGE5 ABOUT ENDS //
+
+// HOMEPAGE6 ABOUT STARTS //
+.about6-section-area{
+  @media #{$xs} {
+    padding: 50px 0 50px;
+  }
+  @media #{$md} {
+    padding: 50px 0 50px;
+  }
+  .about6-images{
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .img1{
+      img{
+        border-radius: 4px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .img2{
+      @media #{$xs} {
+        margin-top: 30px;
+      }
+      img{
+        border-radius: 4px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .about6-content-area{
+    padding: 0 0 0 50px;
+    @media #{$xs} {
+      margin-top: 30px;
+      padding: 0;
+    }
+    @media #{$md} {
+      padding: 0;
+      margin-top: 30px;
+    }
+    
+    span.header{
+      display: inline-block;
+      font-family: $font-2;
+      font-weight: $medium;
+      color: $color8;
+      font-size: $small_font_size;
+      background: $bg36;
+      line-height: 16px;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+    h2{
+      font-size: $heading2_size - 2;
+      line-height: 50px;
+      font-weight: $semi-bold;
+      color: $title-color1;
+      font-family: $font-1;
+      @media #{$xs} {
+        font-size: $heading3_size - 2;
+        line-height: 40px;
+      }
+    }
+    p{
+      font-family: $font-2;
+      font-weight: $regular;
+      color: $color4;
+      font-size: $small_font_size;
+      line-height: 28px;
+    }
+    h4{
+      font-family: $font-2;
+      font-weight: $semi-bold;
+      color: $title-color1;
+      font-size: $small_font_size + 4;
+    }
+  }
+}
+// HOMEPAGE6 ABOUT ENDS //
+
+// INNERPAGES ABOUT STARTS //
+.inner-header-section{
+  position: relative;
+  padding: 110px 0 50px;
+  .shape1{
+    position: absolute;
+  }
+  .about-inner-header{
+    h2{
+      font-family: $font-1;
+      font-size: $heading2_size + 6;
+      line-height: 58px;
+      font-weight: $semi-bold;
+      color: $color6;
+      @media #{$xs} {
+        font-size: $heading3_size + 2;
+        line-height: 42px;
+      }
+    }
+    a{
+      font-family: $font-2;
+      font-size: $small_font_size;  
+      font-weight: $regular;
+      color: $color6;
+      display: inline-block;
+      i{
+        font-size: $small_font_size + 4;
+        margin: 0 4px;
+        font-weight: $regular
+      }
+      span{
+        font-family: $font-2;
+        font-size: $small_font_size;  
+        font-weight: $semi-bold;
+        color: $color6;
+        display: inline-block;
+      }
+    }
+  }
+}
+// INNERPAGES ABOUT ENDS //
+
+/*============= ABOUT CSS AREA ENDS ===============*/

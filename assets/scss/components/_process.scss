@@ -1,0 +1,208 @@
+/*============= PROCESS CSS AREA ===============*/
+.process4-section-area{
+    @media #{$xs} {
+        padding: 50px 0 50px;
+    }
+    @media #{$md} {
+        padding: 50px 0 50px;
+    }
+    .process4-header{
+        h2{
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+    }
+    .process-widget-area{
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+    .process-widget-text{
+        padding: 0 30px;
+        @media #{$xs} {
+            padding: 0;
+            margin-top: 20px;
+        }
+        @media #{$md} {
+            padding: 0;
+            margin-top: 20px;
+        }
+        h3{
+            font-family: $font-2;
+            font-size: $heading2_size - 2;
+            line-height: 48px;
+            font-weight: $medium;
+            color: $bg-color9;
+            padding-bottom: 16px;
+        }
+
+        h2{
+            font-family: $font-1;
+            font-weight: $semi-bold;
+            line-height: 52px;
+            font-size: $heading2_size - 2;
+            padding-bottom: 16px;
+            color: $title-color1;
+            @media #{$xs} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+            @media #{$md} {
+                font-size: $heading3_size - 2;
+                line-height: 40px;
+            }
+        }
+
+        p{
+            font-family: $font-2;
+            font-weight: $regular;
+            color: $color4;
+            font-size: $small_font_size;
+        }
+    }
+    .process-section2{
+        position: relative;
+        @media #{$xs} {
+            padding: 30px 0;
+        }
+        @media #{$md} {
+            padding: 30px 0;
+        }
+        .process-elements1{
+            position: absolute;
+            top: -4px;
+            left: 48%;
+            right: 47%;
+            z-index: -1;
+        }
+        .process-elements2{
+            position: absolute;
+            bottom: 0;
+            left: 44%;
+            right: 43%;
+            z-index: -1;
+            rotate: -6deg;
+        }
+        .process-widget-text{
+            padding: 0 30px 0 0;
+            @media #{$md} {
+                padding: 0;
+                margin-bottom: 20px;
+            }
+            @media #{$xs} {
+                padding: 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+// HOMEPAGE5 STARTS //
+.process5-section-area{
+    @media #{$xs} {
+        padding: 50px 0 170px;
+    }
+    @media #{$md} {
+        padding: 50px 0 170px;
+    }
+    .process5-header{
+        padding: 0 58px 0 0;
+        @media #{$xs} {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        @media #{$md} {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        span.about{
+            background: $bg31;
+            font-size: $small_font_size;
+            font-weight: $medium;
+            line-height: 16px;
+            font-family: $font-2;
+            color: $color7;
+            display: inline-block;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        h2{
+            font-family: $font-1;
+            font-weight: $semi-bold;
+            color: $color6;
+            font-size: $heading2_size - 2;
+            line-height: 50px;
+            @media #{$xs} {
+              font-size: $heading3_size - 2;
+              line-height: 40px;
+            }
+        }
+        p{
+            font-family: $font-2;
+            font-size: $small_font_size;
+            line-height: 26px;
+            font-weight: $regular;
+            color: $color6;
+            opacity: 0.7 !important;
+        }
+        h4{
+            font-family: $font-1;
+            font-weight: $semi-bold;
+            font-size: $small_font_size + 4;
+            line-height: 24px;
+            color: $color6;
+        }
+    }
+
+    .process-imges-area{
+        position: relative;
+        .img1{
+            text-align: end;
+            img{
+                width: 502px;
+                height: 425px;
+                object-fit: cover; 
+                @media #{$md} {
+                    width: 562px;
+                }           
+            }
+        }
+        .img2{
+            position: absolute;
+            bottom: -113px;
+        }
+        .experiance-text{
+            background: $color7;
+            width: 134px;
+            padding: 24px 16px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px 0 0 0;
+            h4{
+                font-family: $font-1;
+                font-size: $heading2_size + 6;
+                line-height: 48px;
+                color: $color-w;
+                text-align: center;
+                font-weight: $semi-bold;
+                margin-bottom: 10px;
+            }
+            p{
+                font-family: $font-2;
+                font-size: $small_font_size + 2;
+                line-height: 28px;
+                color: $color-w;
+                font-weight: $regular;
+            }
+        }
+    }
+}
+// HOMEPAGE5 ENDS //
+
+/*============= PROCESS CSS AREA ENDS ===============*/

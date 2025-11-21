@@ -1,0 +1,28 @@
+/*
+============================
+Name:  Justlaw Law and Attorney Template
+Version: 1.0.0
+Description: Justlaw Law and Attorney Template
+Author: Vikiglab
+Author URI: https://themeforest.net/user/vikinglab/portfolio
+Location:
+============================
+*/
+
+.site-logo a p {
+	font-size: 1.5em;
+	vertical-align: middle;
+	font-family: "Crimson Text", serif;
+	color: #000;
+}
+
+.logo-footer img {
+	max-height: 4em;
+}
+
+.logo-footer a p {
+	font-size: 1.6em;
+	vertical-align: middle;
+	font-family: "Crimson Text", serif;
+	color: #000;
+}
