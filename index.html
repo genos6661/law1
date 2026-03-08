@@ -865,15 +865,15 @@ We uphold the highest standards of excellence, ensuring every client receives fa
               <div class="contact-input-area">
                 <h4>Name</h4>
                 <div class="space16"></div>
-                <input type="text" placeholder="Your Name">
+                <input type="text" placeholder="Your Name" id="nameContact">
               </div>
             <div class="space20"></div>
             </div>
             <div class="col-lg-6">
               <div class="contact-input-area">
-                <h4>Email Address</h4>
+                <h4>Phone/Email</h4>
                 <div class="space16"></div>
-                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Email Address" id="emailContact">
               </div>
             <div class="space20"></div>
             </div>
@@ -881,13 +881,13 @@ We uphold the highest standards of excellence, ensuring every client receives fa
               <div class="contact-input-area">
                 <h4>Message</h4>
                 <div class="space16"></div>
-                <textarea placeholder="Type your message..." cols="30" rows="10"></textarea>
+                <textarea placeholder="Type your message..." cols="30" rows="10" id="textContact"></textarea>
               </div>
             </div>
             <div class="space20"></div>
             <div class="col-lg-12 d-flex justify-content-end">
               <div class="contact-input-area">
-               <a href="contact.html" class="theme-btn6">Send <span><i class="fa-solid fa-send"></i></span></a>
+               <a onclick="handleFormSubmit(event)" class="theme-btn6">Send <span><i class="fa-solid fa-send"></i></span></a>
               </div>
             </div>
           </div>
@@ -983,6 +983,36 @@ We uphold the highest standards of excellence, ensuring every client receives fa
 <script src="assets/js/mobile-meanmenu.js"></script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/main.js"></script>
+
+<script>
+  /* ── Contact form ── */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const fullName = document.getElementById("nameContact").value;
+    const email    = document.getElementById("emailContact").value;
+    const message  = document.getElementById("textContact").value;
+
+    const text = 
+    `Nama : ${fullName}\nKontak : ${email}\n\n${message}`;
+
+    const encodedText = encodeURIComponent(text);
+
+    const whatsappNumber = "628996666400";
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    window.open(url, "_blank");
+
+    // const btn = e.currentTarget;
+    // btn.textContent = '✓ Message Sent!';
+    // btn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+    // btn.disabled = true;
+    // setTimeout(() => {
+    //   btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    //   btn.style.background = '';
+    //   btn.disabled = false;
+    // }, 3000);
+  }
+</script>
 
 </body>
 </html>
