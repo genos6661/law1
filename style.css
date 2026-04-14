@@ -26,3 +26,7 @@ Location:
 	font-family: "Crimson Text", serif;
 	color: #000;
 }
+
+.cursor-pointer {
+	cursor: pointer;
+}
