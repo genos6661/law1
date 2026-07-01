@@ -10457,7 +10457,7 @@ body.body6 {
 
 .progress-wrap {
   position: fixed;
-  right: 30px;
+  left: 30px;
   bottom: 30px;
   height: 56px;
   width: 56px;
