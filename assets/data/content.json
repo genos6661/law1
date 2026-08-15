@@ -1,0 +1,72 @@
+{
+    "gallery": [
+        {
+            "id": 1,
+            "title": "Victorious Outcome",
+            "caption": "Land Clearing Execution"
+        },
+        {
+            "id": 2,
+            "title": "Strategic Negotiations",
+            "caption": "Armed with a solid case compensation."
+        },
+        {
+            "id": 3,
+            "title": "Litigation Preparedness",
+            "caption": "Anticipating potential resistance."
+        },
+        {
+            "id": 4,
+            "title": "Educational Outreach",
+            "caption": "Seminar at a government agency"
+        },
+        {
+            "id": 5,
+            "title": "Client Handholding",
+            "caption": "Oversee all processes to completion"
+        }
+    ],
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "Hardy",
+            "role": "Owner of Boldys",
+            "rating": 5,
+            "text": "The land acquisition process, which had remained unresolved by the government for approximately two years, was finally brought to a successful conclusion after being handled by The Brotherhood. Through a professional approach, well-crafted legal strategy, and effective communication, the entire matter was resolved efficiently. We truly appreciate the team’s dedication and commitment in securing our rights to completion."
+        },
+        {
+            "id": 2,
+            "name": "Nyoman",
+            "role": "Money Changer Business Owner",
+            "rating": 5,
+            "text": "The process of establishing our company and securing all the necessary permits was handled seamlessly by The Brotherhood. What initially felt complex and time-consuming became smooth and efficient thanks to their expertise and clear guidance. Their team demonstrated professionalism, responsiveness, and a deep understanding of regulatory requirements. We are truly grateful for their support in ensuring our business was set up properly and without complications."
+        },
+        {
+            "id": 3,
+            "name": "Brice",
+            "role": "Client",
+            "rating": 5,
+            "text": "The process of reviewing and finalizing our building lease agreement was handled with great professionalism by The Brotherhood. Their team ensured that every clause was carefully examined and clearly explained, giving us full confidence before signing the contract. Thanks to their expertise, we were able to secure a fair and well-structured agreement without any complications. We truly appreciate their thoroughness and commitment throughout the entire process."
+        }
+    ],
+    "blogs": [
+        {
+            "id": 1,
+            "date": "August 15, 2026",
+            "title": "Understanding Civil Law Procedures in Indonesia",
+            "excerpt": "A practical overview of what to expect when filing a civil case, from initial consultation through to resolution, and how proper preparation protects your rights."
+        },
+        {
+            "id": 2,
+            "date": "August 10, 2026",
+            "title": "5 Things to Know Before Signing a Business Contract",
+            "excerpt": "Practical tips for protecting your interests in any agreement, including clauses that are often overlooked but can have major consequences later."
+        },
+        {
+            "id": 3,
+            "date": "August 5, 2026",
+            "title": "Navigating Land Ownership Disputes in Bali",
+            "excerpt": "Common causes of property and land disputes in Bali, and the legal steps available to resolve them fairly and efficiently."
+        }
+    ]
+}

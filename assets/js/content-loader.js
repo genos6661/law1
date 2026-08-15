@@ -1,0 +1,141 @@
+/* Fetches assets/data/content.json and renders the Gallery, Testimonial and
+   Blog sections from it. Image files are NOT stored in the JSON — they are
+   expected to live in assets/img/{gallery,testimonial,blog}/ named after each
+   item's id (e.g. assets/img/gallery/gallery-1.jpg).
+
+   main.js initializes the owlCarousel/slick sliders and AOS animations for
+   these sections, so it must not run until this content actually exists in
+   the DOM. Its <script> tag is intentionally left out of index.html and is
+   instead loaded here, after rendering finishes (see loadMainScript below). */
+(function () {
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderGallery(items) {
+    const $container = $('.cases-study-slider-area');
+    if (!$container.length) return;
+    items.forEach(function (item) {
+      const imgSrc = 'assets/img/gallery/gallery-' + item.id + '.jpg';
+      const altText = item.title
+        ? item.title + ' — The Brotherhood'
+        : 'Legal case gallery photo by The Brotherhood';
+      let textHtml = '';
+      if (item.title) {
+        textHtml =
+          '<div class="case5-text">' +
+            '<a href="#casestudy">' + escapeHtml(item.title) + '</a>' +
+            '<p>' + escapeHtml(item.caption) + '</p>' +
+          '</div>';
+      }
+      $container.append(
+        '<div class="case-slider-boxarea">' +
+          '<div class="img1"><img src="' + imgSrc + '" alt="' + escapeHtml(altText) + '"></div>' +
+          textHtml +
+        '</div>'
+      );
+    });
+  }
+
+  function renderTestimonials(items) {
+    const $images = $('.slider-images1');
+    const $text = $('.tes2-slider-all1');
+    if (!$images.length || !$text.length) return;
+    items.forEach(function (item) {
+      const imgSrc = 'assets/img/testimonial/testimonial-' + item.id + '.jpg';
+      $images.append(
+        '<div class="single-slider-images">' +
+          '<div class="img1 img100"><img src="' + imgSrc + '" alt="Satisfied client of The Brotherhood law firm"></div>' +
+        '</div>'
+      );
+
+      const starCount = Number(item.rating) || 5;
+      let stars = '';
+      for (let i = 0; i < starCount; i++) {
+        stars += '<li><i class="fa-solid fa-star"></i></li>';
+      }
+
+      $text.append(
+        '<div class="tes2-single-slider">' +
+          '<div class="ratting"><ul>' + stars + '</ul></div>' +
+          '<div class="space10"></div>' +
+          '<div class="hadding">' +
+            '<a>' + escapeHtml(item.name) + '</a>' +
+            '<div class="space5"></div>' +
+            '<p>' + escapeHtml(item.role) + '</p>' +
+          '</div>' +
+          '<div class="space16"></div>' +
+          '<div class="main-hadding"><p>&quot;' + escapeHtml(item.text) + '&quot;</p></div>' +
+          '<div class="space24"></div>' +
+        '</div>'
+      );
+    });
+  }
+
+  function renderBlogs(items) {
+    const $container = $('.articles-row');
+    if (!$container.length) return;
+    items.forEach(function (item, index) {
+      const imgSrc = 'assets/img/blog/blog-' + item.id + '.jpg';
+      const delay = 800 + index * 200;
+      $container.append(
+        '<div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-duration="' + delay + '">' +
+          '<div class="article-card">' +
+            '<div class="article-img"><img src="' + imgSrc + '" alt="' + escapeHtml(item.title) + '"></div>' +
+            '<div class="space16"></div>' +
+            '<div class="article-text">' +
+              '<div class="date">' +
+                '<span><img src="assets/img/icons/calender.svg" alt=""></span>' +
+                '<span class="article-date-text">' + escapeHtml(item.date) + '</span>' +
+              '</div>' +
+              '<div class="space16"></div>' +
+              '<h3>' + escapeHtml(item.title) + '</h3>' +
+              '<div class="space12"></div>' +
+              '<p>' + escapeHtml(item.excerpt) + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    });
+  }
+
+  function loadMainScript() {
+    const script = document.createElement('script');
+    script.src = 'assets/js/main.js';
+    document.body.appendChild(script);
+  }
+
+  function showLoadError() {
+    const isFileProtocol = window.location.protocol === 'file:';
+    const message = isFileProtocol
+      ? 'This section needs the site to be opened through a web server (not by double-clicking the HTML file). ' +
+        'Run a local server (e.g. "npx http-server" in this folder) and open the http://localhost link it prints, ' +
+        'or visit the live thebrotherhoodlaw.com site.'
+      : 'This section could not load its content right now. Please refresh the page.';
+    const html = '<div class="content-load-error">' + escapeHtml(message) + '</div>';
+    $('.cases-study-slider-area, .slider-images1, .tes2-slider-all1, .articles-row').html(html);
+  }
+
+  fetch('assets/data/content.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('Failed to load content.json: ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      renderGallery(data.gallery || []);
+      renderTestimonials(data.testimonials || []);
+      renderBlogs(data.blogs || []);
+    })
+    .catch(function (err) {
+      console.error('content-loader: could not load assets/data/content.json', err);
+      showLoadError();
+    })
+    .finally(function () {
+      loadMainScript();
+    });
+})();
