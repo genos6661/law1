@@ -50,6 +50,22 @@
   scroll-margin-top: 90px;
 }
 
+.case5-section-area .cases-study-slider-area .case-slider-boxarea .img1 {
+  height: 320px;
+}
+
+.case5-section-area .cases-study-slider-area .case-slider-boxarea .img1 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .case5-section-area .cases-study-slider-area .case-slider-boxarea .img1 {
+    height: 260px;
+  }
+}
+
 .contact4-section-area {
 	background: #A87C2D;
 }
@@ -65,4 +81,258 @@
 
 .btnSend:hover {
 	background: #8A682B;
+}
+
+/* Chatbot widget (chatbot.thebrotherhoodlaw.com/widget.js) is fixed bottom-right
+   with an extremely high z-index. Its wrapper appears to keep the full closed/open
+   footprint hit-testable even when visually collapsed, silently blocking clicks/hover
+   on whatever page content sits underneath it (rightmost gallery card, 3rd video, etc).
+   Make the wrapper itself click-through and only re-enable pointer events on the
+   actual interactive controls inside it, so page content behind it stays usable. */
+#cw-host {
+	pointer-events: none;
+}
+
+#cw-host button,
+#cw-host a,
+#cw-host input,
+#cw-host textarea,
+#cw-host [role="button"],
+#cw-host [tabindex] {
+	pointer-events: auto;
+}
+
+/* ==========================================================================
+   DARK MODE
+   Toggled by adding data-theme="dark" to <html> (see the inline script in
+   <head> and the toggle-button script near the end of <body>).
+   Palette: page bg #121212, alt-panel bg #1A1A1A, card bg #1E1E1E,
+   heading/body text #F2EEE7, borders #333. Brand gold (#A87C2D) is left
+   unchanged since it reads fine on both light and dark backgrounds.
+   ========================================================================== */
+
+[data-theme="dark"] body {
+	background-color: #121212;
+	color: #C9C3B8;
+}
+
+/* Toggle button itself */
+.theme-toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	margin-left: 12px;
+	border-radius: 50%;
+	border: 1px solid #E6E6E6;
+	background: #fff;
+	color: #090D14;
+	cursor: pointer;
+	font-size: 15px;
+	line-height: 1;
+	transition: all 0.3s ease;
+}
+.theme-toggle-btn:hover {
+	background: #A87C2D;
+	border-color: #A87C2D;
+	color: #fff;
+}
+[data-theme="dark"] .theme-toggle-btn {
+	border-color: #333;
+	background: #1E1E1E;
+	color: #F2EEE7;
+}
+
+.mobile-theme-toggle-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	font-family: "IBM Plex Sans", sans-serif;
+	color: #090D14;
+}
+[data-theme="dark"] .mobile-theme-toggle-row {
+	color: #F2EEE7;
+}
+
+/* Preloader / scroll-to-top */
+[data-theme="dark"] #preloader {
+	background-color: #121212;
+}
+[data-theme="dark"] .progress-wrap {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .progress-wrap::after,
+[data-theme="dark"] .progress-wrap::before {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .progress-wrap svg.progress-circle path {
+	stroke: #A87C2D;
+}
+
+/* Header (desktop + sticky) */
+[data-theme="dark"] .site-logo a p,
+[data-theme="dark"] .logo-footer a p {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .header-area.homepage5 .header-elements,
+[data-theme="dark"] .header-area.homepage5.sticky,
+[data-theme="dark"] .header-area.homepage5.sticky .header-elements {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .header-area.homepage5 .header-elements .main-menu.menu-ex5 ul li a {
+	color: #F2EEE7;
+}
+
+/* Mobile header + sidebar */
+[data-theme="dark"] .mobile-header {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .mobile-nav-icon {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .mobile-logo a p {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .mobile-sidebar.sidebar5 {
+	background: #1A1A1A;
+	color: #F2EEE7;
+}
+[data-theme="dark"] .mobile-sidebar.sidebar5 .menu-close,
+[data-theme="dark"] .mobile-sidebar.sidebar5 .mobile-nav ul li a,
+[data-theme="dark"] .mobile-sidebar.sidebar5 .mobile-menu-social h3,
+[data-theme="dark"] .mobile-sidebar.sidebar5 .mobile-menu-social .mobile-menu-icon-box a,
+[data-theme="dark"] .mobile-sidebar.sidebar5 .mobile-menu-social-icon ul li a {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .mobile-sidebar.sidebar5 .mobile-menu-social-icon ul li a {
+	border-color: #F2EEE7;
+}
+[data-theme="dark"] .mobile-sidebar.sidebar5 .submenu-button::after,
+[data-theme="dark"] .mobile-sidebar.sidebar5 .submenu-button::before {
+	background: #F2EEE7;
+}
+
+/* Section pill labels ("About Us", "Practice Areas", "Gallery", "What We Offer", "Testimonials", "Videos") */
+[data-theme="dark"] .case5-section-area .case5-header span.about,
+[data-theme="dark"] .service5-section-area .case5-header span.about,
+[data-theme="dark"] .about5-section-area .about5-textarea span.about,
+[data-theme="dark"] .process5-section-area .process5-header span.about,
+[data-theme="dark"] .testimonial5-section-area .testimonial5-header .testimonial5-text span.about,
+[data-theme="dark"] .blog5-section-area .blog5-header span.about {
+	background: #2A2620;
+}
+
+/* Section headings + intro paragraphs */
+[data-theme="dark"] .case5-section-area .case5-header h2,
+[data-theme="dark"] .service5-section-area .case5-header h2,
+[data-theme="dark"] .about5-section-area .about5-textarea h2,
+[data-theme="dark"] .about5-section-area .about5-textarea p,
+[data-theme="dark"] .process5-section-area .process5-header h2,
+[data-theme="dark"] .process5-section-area .process5-header p,
+[data-theme="dark"] .process5-section-area .process5-header h4,
+[data-theme="dark"] .testimonial5-section-area .testimonial5-header .testimonial5-text h2,
+[data-theme="dark"] .blog5-section-area .blog5-header h2 {
+	color: #F2EEE7;
+}
+
+/* Practice Areas cards */
+[data-theme="dark"] .service5-section-area {
+	background: #1A1A1A;
+}
+[data-theme="dark"] .service5-section-area .service5-boxarea {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .service5-section-area .service5-boxarea .car-content .icon-service {
+	background: #2A2620;
+}
+[data-theme="dark"] .service5-section-area .service5-boxarea .car-content a,
+[data-theme="dark"] .service5-section-area .service5-boxarea p {
+	color: #F2EEE7;
+}
+
+/* Gallery */
+[data-theme="dark"] .case5-section-area {
+	background: #1A1A1A;
+}
+[data-theme="dark"] .case5-section-area .cases-study-slider-area .case-slider-boxarea .case5-text {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .case5-section-area .cases-study-slider-area .case-slider-boxarea .case5-text a,
+[data-theme="dark"] .case5-section-area .cases-study-slider-area .case-slider-boxarea .case5-text p {
+	color: #F2EEE7;
+}
+
+/* Testimonials */
+[data-theme="dark"] .testimonial5-section-area .tes2-slider-all1 .tes2-single-slider .hadding a,
+[data-theme="dark"] .testimonial5-section-area .tes2-slider-all1 .tes2-single-slider .hadding p,
+[data-theme="dark"] .testimonial5-section-area .tes2-slider-all1 .tes2-single-slider .main-hadding p {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .testimonial5-section-area .testimonial-arrows .testimonial-prev-arrow button,
+[data-theme="dark"] .testimonial5-section-area .testimonial-arrows .testimonial-next-arrow button {
+	background: #2A2620;
+	color: #F2EEE7;
+}
+
+/* Videos */
+[data-theme="dark"] .blog5-section-area {
+	background: #1A1A1A;
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text .date a,
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text a {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text .date img {
+	filter: invert(1);
+}
+
+/* Contact form card (the outer gold contact4-section-area itself is left as-is) */
+[data-theme="dark"] .contact4-section-area .contact-form-area {
+	background: #1E1E1E;
+}
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area h4 {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area input,
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area textarea {
+	border-color: #444;
+	color: #F2EEE7;
+}
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area input::placeholder,
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area textarea::placeholder {
+	color: #8A8478;
+}
+
+/* Footer */
+[data-theme="dark"] .footer5 .border,
+[data-theme="dark"] .footer-bottom5 .border1 {
+	background: #333;
+}
+[data-theme="dark"] .footer5 p.footer-prea,
+[data-theme="dark"] .footer5 .footer-menu-list h3,
+[data-theme="dark"] .footer5 .footer-menu-list ul li a {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .footer5 .social li a {
+	color: #F2EEE7;
+	border-color: #333;
+}
+[data-theme="dark"] .footer-bottom5 .copyright,
+[data-theme="dark"] .footer-bottom5 .treams a {
+	color: #F2EEE7 !important;
+}
+
+/* Video modals */
+[data-theme="dark"] .modal-content {
+	background-color: #1E1E1E;
+	color: #F2EEE7;
+}
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer {
+	border-color: #333;
+}
+[data-theme="dark"] .modal .btn-close {
+	filter: invert(1);
 }

@@ -5,10 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!--=====TITLE=======-->
-    <title>The Brotherhood</title>
+    <!--=====DARK MODE (applied before first paint to avoid a flash of the wrong theme)=======-->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('bh-theme');
+          var theme = (stored === 'light' || stored === 'dark')
+            ? stored
+            : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!--=====PRIMARY SEO=======-->
+    <title>The Brotherhood Law Firm | Lawyer in Bali</title>
+    <meta name="description" content="Trusted lawyer in Bali & Denpasar. The Brotherhood offers civil & criminal defense, tax consultation, land disputes, legal drafting & corporate law.">
+    <meta name="keywords" content="lawyer in Bali, lawyer in Denpasar, law firm Bali, legal consultation Bali, tax consultant Bali, land dispute lawyer Bali, corporate law Bali, The Brotherhood law firm">
+    <meta name="author" content="The Brotherhood">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://thebrotherhoodlaw.com/">
+
+    <!--=====OPEN GRAPH / FACEBOOK=======-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Brotherhood">
+    <meta property="og:title" content="Lawyer in Bali & Denpasar | The Brotherhood Law Firm">
+    <meta property="og:description" content="Trusted lawyer in Bali & Denpasar. The Brotherhood offers civil & criminal defense, tax consultation, land disputes, legal drafting & corporate law.">
+    <meta property="og:url" content="https://thebrotherhoodlaw.com/">
+    <meta property="og:image" content="https://thebrotherhoodlaw.com/assets/img/logo/logo.png">
+    <meta property="og:locale" content="en_US">
+
+    <!--=====TWITTER CARD=======-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lawyer in Bali & Denpasar | The Brotherhood Law Firm">
+    <meta name="twitter:description" content="Trusted lawyer in Bali & Denpasar. The Brotherhood offers civil & criminal defense, tax consultation, land disputes, legal drafting & corporate law.">
+    <meta name="twitter:image" content="https://thebrotherhoodlaw.com/assets/img/logo/logo.png">
+
     <!--=====FAV ICON=======-->
+    <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
     <link rel="shortcut icon" href="assets/img/logo/logo.png">
+    <link rel="apple-touch-icon" href="assets/img/logo/logo.png">
+    <meta name="theme-color" content="#111111">
 
  <!--=====CSS=======-->
  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -32,6 +69,40 @@
  
     <!--=====JQUERY=======-->
     <!-- sekarep -->
+
+    <!--=====STRUCTURED DATA=======-->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "The Brotherhood",
+      "alternateName": "The Brotherhood Law Firm",
+      "description": "Trusted lawyer in Bali and Denpasar offering civil & criminal defense, tax consultation, land dispute resolution, legal drafting, and corporate law services.",
+      "image": "https://thebrotherhoodlaw.com/assets/img/logo/logo.png",
+      "logo": "https://thebrotherhoodlaw.com/assets/img/logo/logo.png",
+      "url": "https://thebrotherhoodlaw.com/",
+      "telephone": "+62-812-3377-5188",
+      "email": "admin@thebrotherhood.id",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Mahendradatta No. 99",
+        "addressLocality": "Denpasar",
+        "addressRegion": "Bali",
+        "addressCountry": "ID"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denpasar"
+        },
+        {
+          "@type": "State",
+          "name": "Bali, Indonesia"
+        }
+      ],
+      "priceRange": "$$"
+    }
+    </script>
   </head>
 
   <body class="body6">
@@ -65,7 +136,7 @@
             <div class="site-logo">
               <a href="/" class="d-flex align-items-center justify-content-center gap-2">
                 <!-- <img src="assets/img/logo/header-logo1.svg" alt=""> -->
-                <img src="assets/img/logo/logo.png" height="50" alt="">
+                <img src="assets/img/logo/logo.png" height="50" alt="The Brotherhood law firm logo">
                 <p>The Brotherhood</p>
               </a>
             </div>
@@ -109,6 +180,9 @@
                 <a href="#contact" class="theme-btn6">Hire Now <span><i class="fa-solid fa-arrow-right"></i></span></a>
               </div>
             </div>
+            <button type="button" class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <i class="fa-solid fa-moon"></i>
+            </button>
           </div>
         </nav>
         </div>
@@ -124,7 +198,7 @@
     <div class="mobile-header-elements row">
       <div class="mobile-logo col-10">
         <a href="/" class="d-flex align-items-center justify-content-center gap-2">
-          <img src="assets/img/logo/logo.png" height="40" alt="">
+          <img src="assets/img/logo/logo.png" height="40" alt="The Brotherhood law firm logo">
           <p>The Brotherhood</p>
         </a>
       </div>
@@ -138,7 +212,7 @@
 <div class="mobile-sidebar sidebar5 d-block d-lg-none">
   <div class="mobile-logo">
     <a href="/" class="d-flex align-items-center justify-content-center gap-2 mobile-logo-sidebar">
-      <img src="assets/img/logo/logo.png" height="40" alt="">
+      <img src="assets/img/logo/logo.png" height="40" alt="The Brotherhood law firm logo">
       <p>The Brotherhood</p>
     </a>
   </div>
@@ -146,14 +220,20 @@
     <i class="fa-solid fa-xmark"></i>
   </div>
   <div class="mobile-nav">
-    <ul>    
+    <div class="mobile-theme-toggle-row">
+      <span>Dark Mode</span>
+      <button type="button" class="theme-toggle-btn" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+    <ul>
         <li class="has-dropdown"><a href="#about"><span>About</span></a></li>
         <li class="has-dropdown"><a href="#service"><span>Practice Areas</span> </a></li>
         <li class="has-dropdown"><a href="#work"><span>Work</span> </a></li>
         <li class="has-dropdown"><a href="#casestudy"><span>Case Study</span> </a></li>       
         <li class="has-dropdown"><a href="#blog"><span>Blog</span></a></li>
     </ul>
-  <a class="theme-btn6" href="contact.html">Get Started <span><i class="fa-solid fa-arrow-right"></i></span> </a>
+  <a class="theme-btn6" href="#contact">Get Started <span><i class="fa-solid fa-arrow-right"></i></span> </a>
   </div>
 
   <div class="mobile-menu-social">
@@ -185,7 +265,7 @@
             <i class="fa-solid fa-location-dot"></i>
           </div>
           <div class="mobile-menu-a">
-            <a href="mailto:info@example.com">Jl. Mahendradatta No. 99 <br> Denpasar, Bali</a>
+            <a>Jl. Mahendradatta No. 99 <br> Denpasar, Bali</a>
           </div>
         </div>
       </div>
@@ -239,7 +319,7 @@
             <div class="hero5-header text-center">
                 <h1 data-aos="fade-up" data-aos-duration="800">We Serve As a Brother</h1>
                 <div class="space16"></div>
-                <p data-aos="fade-up" data-aos-duration="1000"><strong>The Brotherhood</strong> is a distinguished law firm committed to delivering exceptional legal services with integrity and professionalism.
+                <p data-aos="fade-up" data-aos-duration="1000"><strong>The Brotherhood</strong> is a trusted lawyer in Bali and Denpasar, distinguished for delivering exceptional legal services with integrity and professionalism.
 We uphold the highest standards of excellence, ensuring every client receives fair, transparent, and effective representation built on trust and discretion.</p>
                 <div class="btn-area" data-aos="fade-up" data-aos-duration="1200">
                     <div class="space24"></div>
@@ -300,10 +380,10 @@ We uphold the highest standards of excellence, ensuring every client receives fa
       <div class="col-lg-6">
         <div class="about-images-area">
           <div class="about-widget-img" data-aos="zoom-out" data-aos-duration="1000">
-            <img src="assets/img/image/1.jpg" alt="">
+            <img src="assets/img/image/1.jpg" alt="The Brotherhood law firm attorneys in Denpasar, Bali">
           </div>
           <div class="about-widget-img2" data-aos="zoom-out" data-aos-duration="1200">
-            <img src="assets/img/image/hero-1.jpg" alt="">
+            <img src="assets/img/image/hero-1.jpg" alt="The Brotherhood law office in Bali">
           </div>
           <div class="experiance-text" data-aos="zoom-out" data-aos-duration="1400">
             <h3><span class="counter">25</span></h3>
@@ -317,7 +397,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
           <div class="space16"></div>
           <h2 data-aos="fade-left" data-aos-duration="900">Your Partners in Justice</h2>
           <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="1000">The Brotherhood is a law firm built on commitment, experience, and a strong belief in responsible legal practice. We work closely with our clients, understanding each situation in depth and providing solutions that are practical, reliable, and aligned with real-world needs. Every case is handled with full attention and professionalism, ensuring trust and confidence throughout the legal journey.</p>
+          <p data-aos="fade-left" data-aos-duration="1000">The Brotherhood is a law firm built on commitment, experience, and a strong belief in responsible legal practice. As a trusted lawyer in Bali and Denpasar, we work closely with our clients, understanding each situation in depth and providing solutions that are practical, reliable, and aligned with real-world needs. Every case is handled with full attention and professionalism, ensuring trust and confidence throughout the legal journey.</p>
           <div class="space16"></div>
           <p class="text-right" data-aos="fade-right" data-aos-duration="1100">Beyond legal services, The Brotherhood also offers professional tax consultancy and financial application systems to support business operations and compliance. By integrating legal expertise with modern financial solutions, we empower clients to manage legal and financial matters confidently and efficiently.</p>
           <div class="space32"></div>
@@ -349,7 +429,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/konsultasi_pp.png" alt="">
+              <img src="assets/img/practice_area/konsultasi_pp.png" alt="Civil and criminal law consultation icon">
             </div>
             <a>Civil & Criminal Law Consultation</a>
           </div>
@@ -366,7 +446,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/pajak.png" alt="">
+              <img src="assets/img/practice_area/pajak.png" alt="Tax consultation icon">
             </div>
             <a>Tax Consultation</a>
           </div>
@@ -383,7 +463,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/aplikasi.png" alt="">
+              <img src="assets/img/practice_area/aplikasi.png" alt="Accounting and tax application system icon">
             </div>
             <a>Accounting & Tax Application System</a>
           </div>
@@ -400,7 +480,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/sengketa_tanah.png" alt="">
+              <img src="assets/img/practice_area/sengketa_tanah.png" alt="Land and property disputes icon">
             </div>
             <a>Land & Property Disputes</a>
           </div>
@@ -417,7 +497,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/legal_drafting.png" alt="">
+              <img src="assets/img/practice_area/legal_drafting.png" alt="Legal drafting and contract review icon">
             </div>
             <a>Legal Drafting & Contract Review</a>
           </div>
@@ -434,7 +514,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="service5-boxarea">
           <div class="car-content">
             <div class="icon-service">
-              <img src="assets/img/practice_area/hukum_personal.png" alt="">
+              <img src="assets/img/practice_area/hukum_personal.png" alt="Personal, business and corporate law icon">
             </div>
             <a>Personal, Business & Corporate Law</a>
           </div>
@@ -476,10 +556,10 @@ We uphold the highest standards of excellence, ensuring every client receives fa
       <div class="col-lg-6">
         <div class="process-imges-area">
           <div class="img1" data-aos="zoom-out" data-aos-duration="1000">
-            <img src="assets/img/image/4.jpg" alt="">
+            <img src="assets/img/image/4.jpg" alt="Legal case evaluation process by The Brotherhood">
           </div>
           <div class="img2" data-aos="zoom-out" data-aos-duration="1000">
-            <img src="assets/img/image/2.jpg" alt="">
+            <img src="assets/img/image/2.jpg" alt="Legal consultation meeting at The Brotherhood">
           </div>
           <div class="experiance-text text-center" data-aos="zoom-out" data-aos-duration="1100"> 
             <h4><span class="counter">25</span></h4>
@@ -510,46 +590,46 @@ We uphold the highest standards of excellence, ensuring every client receives fa
         <div class="cases-study-slider-area owl-carousel" data-aos="zoom-in" data-aos-duration="1000">
           <div class="case-slider-boxarea">
             <div class="img1">
-              <img src="assets/img/image/10.jpg" alt="">
+              <img src="assets/img/image/10.jpg" alt="Land clearing execution case handled by The Brotherhood">
             </div>
             <div class="case5-text">
-              <a href="case-details.html">Victorious Outcome</a>
+              <a href="#casestudy">Victorious Outcome</a>
               <p>Land Clearing Execution</p>
             </div>
           </div>
           <div class="case-slider-boxarea">
             <div class="img1">
-              <img src="assets/img/image/11.jpg" alt="">
+              <img src="assets/img/image/11.jpg" alt="Strategic negotiation and compensation case by The Brotherhood">
             </div>
             <div class="case5-text">
-              <a href="case-details.html">Strategic Negotiations</a>
+              <a href="#casestudy">Strategic Negotiations</a>
               <p>Armed with a solid case compensation.</p>
             </div>
           </div>
           <div class="case-slider-boxarea">
             <div class="img1">
-              <img src="assets/img/image/8.jpg" alt="">
+              <img src="assets/img/image/8.jpg" alt="Litigation preparedness case by The Brotherhood">
             </div>
             <div class="case5-text">
-              <a href="case-details.html">Litigation Preparedness</a>
+              <a href="#casestudy">Litigation Preparedness</a>
               <p>Anticipating potential resistance.</p>
             </div>
           </div>
           <div class="case-slider-boxarea">
             <div class="img1">
-              <img src="assets/img/image/12.jpg" alt="">
+              <img src="assets/img/image/12.jpg" alt="Legal case gallery photo by The Brotherhood">
             </div>
             <!-- <div class="case5-text">
-              <a href="case-details.html">Litigation Preparedness</a>
+              <a href="#casestudy">Litigation Preparedness</a>
               <p>Anticipating potential resistance.</p>
             </div>
  -->          </div>
           <div class="case-slider-boxarea">
             <div class="img1">
-              <img src="assets/img/image/13.jpg" alt="">
+              <img src="assets/img/image/13.jpg" alt="Legal case gallery photo by The Brotherhood">
             </div>
             <!-- <div class="case5-text">
-              <a href="case-details.html">Litigation Preparedness</a>
+              <a href="#casestudy">Litigation Preparedness</a>
               <p>Penindakan Money Changer Ilegal</p>
             </div> -->
           </div>
@@ -586,17 +666,17 @@ We uphold the highest standards of excellence, ensuring every client receives fa
               <div class="slider-images1" data-aos="fade-up" data-aos-duration="700">
                 <div class="single-slider-images">
                   <div class="img1 img100">
-                    <img src="assets/img/image/3.jpg" alt="">
+                    <img src="assets/img/image/3.jpg" alt="Satisfied client of The Brotherhood law firm">
                   </div>
                 </div>
                 <div class="single-slider-images">
                   <div class="img1 img100">
-                    <img src="assets/img/image/14.jpg" alt="">
+                    <img src="assets/img/image/14.jpg" alt="Satisfied client of The Brotherhood law firm">
                   </div>
                 </div>
                 <div class="single-slider-images">
                   <div class="img1 img100">
-                    <img src="assets/img/image/15.jpg" alt="">
+                    <img src="assets/img/image/15.jpg" alt="Satisfied client of The Brotherhood law firm">
                   </div>
                 </div>
                 <!-- <div class="signle-slider-images">
@@ -675,7 +755,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
                     </div>
                     <div class="space10"></div>
                     <div class="hadding">
-                      <a href="team-details.html">Hardy</a>
+                      <a>Hardy</a>
                       <div class="space5"></div>
                       <p>Owner of Boldys</p>
                     </div>
@@ -698,7 +778,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
                 </div>
                 <div class="space10"></div>
                 <div class="hadding">
-                  <a href="team-details.html">Nyoman</a>
+                  <a>Nyoman</a>
                   <div class="space5"></div>
                   <p>Money Changer Business Owner</p>
                 </div>
@@ -721,7 +801,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
             </div>
             <div class="space10"></div>
             <div class="hadding">
-              <a href="team-details.html">Brice</a>
+              <a>Brice</a>
               <div class="space5"></div>
               <p>Client</p>
             </div>
@@ -937,7 +1017,7 @@ We uphold the highest standards of excellence, ensuring every client receives fa
       <div class="col-lg col-md-6">
         <div class="logo-footer">
           <a href="index.html" class="d-flex align-items-center justify-content-center gap-2">
-            <img src="assets/img/logo/logo.png" alt="">
+            <img src="assets/img/logo/logo.png" alt="The Brotherhood law firm logo">
             <p>The Brotherhood</p>
           </a>
         </div>
@@ -1000,11 +1080,11 @@ We uphold the highest standards of excellence, ensuring every client receives fa
 <!--===== FOOTER AREA ENDS =======-->
 
 <!-- ===================== modal ===================== -->
-<div class="modal fade" id="modalVideo1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalVideo1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalVideo1Label" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+        <h2 class="modal-title fs-5" id="modalVideo1Label"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex">
@@ -1017,11 +1097,11 @@ We uphold the highest standards of excellence, ensuring every client receives fa
   </div>
 </div>
 
-<div class="modal fade" id="modalVideo2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalVideo2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalVideo2Label" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+        <h2 class="modal-title fs-5" id="modalVideo2Label"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex">
@@ -1034,11 +1114,11 @@ We uphold the highest standards of excellence, ensuring every client receives fa
   </div>
 </div>
 
-<div class="modal fade" id="modalVideo3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalVideo3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalVideo3Label" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+        <h2 class="modal-title fs-5" id="modalVideo3Label"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex">
@@ -1119,6 +1199,49 @@ We uphold the highest standards of excellence, ensuring every client receives fa
     video.pause();
     // video.currentTime = 0
   });
+
+  /* ── Chatbot widget sits fixed bottom-right with a very high z-index and
+     covers the video modal (blocking clicks/scroll inside it). Hide it while
+     any video modal is open and restore it once the modal is closed. ── */
+  function setChatbotWidgetHidden(hidden) {
+    const chatbotHost = document.getElementById('cw-host');
+    if (!chatbotHost) return;
+    if (hidden) {
+      chatbotHost.style.setProperty('display', 'none', 'important');
+    } else {
+      chatbotHost.style.removeProperty('display');
+    }
+  }
+
+  $('#modalVideo1, #modalVideo2, #modalVideo3').on('show.bs.modal', function () {
+    setChatbotWidgetHidden(true);
+  });
+
+  $('#modalVideo1, #modalVideo2, #modalVideo3').on('hidden.bs.modal', function () {
+    setChatbotWidgetHidden(false);
+  });
+
+  /* ── Dark mode toggle ── */
+  (function () {
+    function currentTheme() {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+    function updateToggleIcons(theme) {
+      document.querySelectorAll('.theme-toggle-btn i').forEach(function (icon) {
+        icon.classList.toggle('fa-moon', theme === 'light');
+        icon.classList.toggle('fa-sun', theme === 'dark');
+      });
+    }
+    updateToggleIcons(currentTheme());
+    document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const next = currentTheme() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('bh-theme', next); } catch (e) {}
+        updateToggleIcons(next);
+      });
+    });
+  })();
 </script>
 
 </body>
