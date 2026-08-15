@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 define('ADMIN_USERNAME', 'admin');
-define('ADMIN_PASSWORD_HASH', '$2y$10$1EiM.Ya1AioJ9H8MP57EW.ixoQ6mCal2Dz713LS47KQ5gHY1GgmCm');
+define('ADMIN_PASSWORD_HASH', '$2y$10$TWjJyPN97ISEoAq/A8sUXOdUvRlKJdkw80RG/Eg7OgXmPIiQ2hL/S');
 
 define('SESSION_NAME', 'bh_admin_session');
 define('SESSION_LIFETIME', 60 * 60 * 4); // 4 hours
