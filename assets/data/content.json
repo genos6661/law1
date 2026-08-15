@@ -49,24 +49,5 @@
             "text": "The process of reviewing and finalizing our building lease agreement was handled with great professionalism by The Brotherhood. Their team ensured that every clause was carefully examined and clearly explained, giving us full confidence before signing the contract. Thanks to their expertise, we were able to secure a fair and well-structured agreement without any complications. We truly appreciate their thoroughness and commitment throughout the entire process."
         }
     ],
-    "blogs": [
-        {
-            "id": 1,
-            "date": "August 15, 2026",
-            "title": "Understanding Civil Law Procedures in Indonesia",
-            "excerpt": "A practical overview of what to expect when filing a civil case, from initial consultation through to resolution, and how proper preparation protects your rights."
-        },
-        {
-            "id": 2,
-            "date": "August 10, 2026",
-            "title": "5 Things to Know Before Signing a Business Contract",
-            "excerpt": "Practical tips for protecting your interests in any agreement, including clauses that are often overlooked but can have major consequences later."
-        },
-        {
-            "id": 3,
-            "date": "August 5, 2026",
-            "title": "Navigating Land Ownership Disputes in Bali",
-            "excerpt": "Common causes of property and land disputes in Bali, and the legal steps available to resolve them fairly and efficiently."
-        }
-    ]
+    "blogs": []
 }

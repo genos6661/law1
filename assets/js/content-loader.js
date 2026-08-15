@@ -8,6 +8,18 @@
    the DOM. Its <script> tag is intentionally left out of index.html and is
    instead loaded here, after rendering finishes (see loadMainScript below). */
 (function () {
+  var preloaderHidden = false;
+  function hidePreloader() {
+    if (preloaderHidden) return;
+    preloaderHidden = true;
+    $('#preloader').fadeOut(300);
+  }
+  // Absolute safety net: never let the preloader block the page for more than
+  // a few seconds, no matter what fails upstream (slow network, a fetch that
+  // never settles, main.js failing to load). Without this, a stalled request
+  // leaves the full-screen preloader up forever.
+  setTimeout(hidePreloader, 6000);
+
   function escapeHtml(value) {
     return String(value == null ? '' : value)
       .replace(/&/g, '&amp;')
@@ -80,6 +92,13 @@
   function renderBlogs(items) {
     const $container = $('.articles-row');
     if (!$container.length) return;
+
+    if (!items.length) {
+      $('.articles-section-area').hide();
+      $('a[href="#blogs"]').closest('li').hide();
+      return;
+    }
+
     items.forEach(function (item, index) {
       const imgSrc = 'assets/img/blog/blog-' + item.id + '.jpg';
       const delay = 800 + index * 200;
@@ -107,6 +126,8 @@
   function loadMainScript() {
     const script = document.createElement('script');
     script.src = 'assets/js/main.js';
+    script.onload = hidePreloader;
+    script.onerror = hidePreloader;
     document.body.appendChild(script);
   }
 

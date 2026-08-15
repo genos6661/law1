@@ -322,12 +322,10 @@ $('.tes2-slider-all1').slick({
 // MODAL VIDEO //
 $(".headerbtn").modalVideo();
 
-// PRELOADER AREA //
-$(window).on("load", function (event) {
-  setTimeout(function () {
-    $("#preloader").fadeToggle();
-  }, 1000);  
-});
+// Preloader is hidden by content-loader.js once this script has actually
+// loaded — window's "load" event is unreliable here since this file is
+// injected dynamically after an async fetch, so it can fire before this
+// script ever runs.
 })(jQuery);
 
 
