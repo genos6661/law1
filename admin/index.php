@@ -8,6 +8,7 @@ $schema = bh_section_schema();
 $content = bh_load_content();
 $csrfToken = bh_csrf_token();
 $flash = bh_get_flash();
+$maxUploadMb = (int) (MAX_UPLOAD_BYTES / 1024 / 1024);
 
 function bh_image_url(string $imgSection, int $id): string
 {
@@ -195,11 +196,10 @@ function bh_image_url(string $imgSection, int $id): string
                   <input type="hidden" name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][id]" value="<?= (int) $item['id'] ?>">
                   <div class="field-row">
                     <?php foreach ($sectionDef['fields'] as $fieldKey => $fieldDef): ?>
+                      <?php if ($fieldDef['type'] === 'textarea') continue; ?>
                       <div>
                         <label><?= htmlspecialchars($fieldDef['label'], ENT_QUOTES) ?></label>
-                        <?php if ($fieldDef['type'] === 'textarea'): ?>
-                          <textarea name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][<?= $fieldKey ?>]" maxlength="<?= $fieldDef['maxlength'] ?>"><?= htmlspecialchars((string) ($item[$fieldKey] ?? ''), ENT_QUOTES, 'UTF-8') ?></textarea>
-                        <?php elseif ($fieldDef['type'] === 'number'): ?>
+                        <?php if ($fieldDef['type'] === 'number'): ?>
                           <input type="number" min="1" max="5" name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][<?= $fieldKey ?>]" value="<?= htmlspecialchars((string) ($item[$fieldKey] ?? ''), ENT_QUOTES) ?>">
                         <?php else: ?>
                           <input type="text" maxlength="<?= $fieldDef['maxlength'] ?>" name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][<?= $fieldKey ?>]" value="<?= htmlspecialchars((string) ($item[$fieldKey] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
@@ -207,11 +207,17 @@ function bh_image_url(string $imgSection, int $id): string
                       </div>
                     <?php endforeach; ?>
                   </div>
+                  <?php foreach ($sectionDef['fields'] as $fieldKey => $fieldDef): ?>
+                    <?php if ($fieldDef['type'] !== 'textarea') continue; ?>
+                    <label><?= htmlspecialchars($fieldDef['label'], ENT_QUOTES) ?></label>
+                    <textarea name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][<?= $fieldKey ?>]" maxlength="<?= $fieldDef['maxlength'] ?>" rows="<?= $fieldKey === 'content' ? 8 : 3 ?>"><?= htmlspecialchars((string) ($item[$fieldKey] ?? ''), ENT_QUOTES, 'UTF-8') ?></textarea>
+                  <?php endforeach; ?>
                   <div class="row-actions">
                     <input type="file" name="<?= $sectionKey ?>_image[<?= (int) $item['id'] ?>]" accept="image/jpeg,image/png,image/gif,image/webp">
                     <input type="hidden" class="delete-flag" name="<?= $sectionKey ?>[<?= (int) $item['id'] ?>][delete]" value="">
                     <span class="delete-toggle">Delete</span>
                   </div>
+                  <div class="hint">Leave empty to keep the current photo. Max <?= $maxUploadMb ?> MB (JPG/PNG/GIF/WEBP).</div>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -239,7 +245,7 @@ function bh_image_url(string $imgSection, int $id): string
           <input type="hidden" class="delete-flag" name="" value="">
           <span class="delete-toggle">Delete</span>
         </div>
-        <div class="hint">New item — an image is required.</div>
+        <div class="hint">New item — an image is required. Max <?= $maxUploadMb ?> MB (JPG/PNG/GIF/WEBP).</div>
       </div>
     </div>
   </template>
@@ -261,7 +267,7 @@ function bh_image_url(string $imgSection, int $id): string
           <input type="hidden" class="delete-flag" name="" value="">
           <span class="delete-toggle">Delete</span>
         </div>
-        <div class="hint">New item — an image is required.</div>
+        <div class="hint">New item — an image is required. Max <?= $maxUploadMb ?> MB (JPG/PNG/GIF/WEBP).</div>
       </div>
     </div>
   </template>
@@ -275,14 +281,16 @@ function bh_image_url(string $imgSection, int $id): string
           <div><label>Date</label><input type="text" maxlength="50" name="" placeholder="August 15, 2026"></div>
           <div><label>Title</label><input type="text" maxlength="200" name=""></div>
         </div>
-        <label>Excerpt</label>
+        <label>Excerpt (shown on the card)</label>
         <textarea maxlength="500" name=""></textarea>
+        <label>Full article (shown when a reader clicks the card)</label>
+        <textarea maxlength="20000" name="" rows="8"></textarea>
         <div class="row-actions">
           <input type="file" name="" accept="image/jpeg,image/png,image/gif,image/webp" required>
           <input type="hidden" class="delete-flag" name="" value="">
           <span class="delete-toggle">Delete</span>
         </div>
-        <div class="hint">New item — an image is required.</div>
+        <div class="hint">New item — an image is required. Max <?= $maxUploadMb ?> MB (JPG/PNG/GIF/WEBP).</div>
       </div>
     </div>
   </template>
@@ -292,7 +300,7 @@ function bh_image_url(string $imgSection, int $id): string
       var fieldOrder = {
         gallery: ['title', 'caption'],
         testimonials: ['name', 'role', 'rating', 'text'],
-        blogs: ['date', 'title', 'excerpt'],
+        blogs: ['date', 'title', 'excerpt', 'content'],
       };
       var newCounter = 0;
 

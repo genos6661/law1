@@ -89,6 +89,23 @@
     });
   }
 
+  function paragraphsHtml(text) {
+    const blocks = String(text || '').split(/\n\s*\n/).map(function (p) { return p.trim(); }).filter(Boolean);
+    if (!blocks.length) return '';
+    return blocks
+      .map(function (p) { return '<p>' + escapeHtml(p).replace(/\n/g, '<br>') + '</p>'; })
+      .join('');
+  }
+
+  function openBlogModal(item, imgSrc) {
+    $('#modalBlogPostLabel').text(item.title || '');
+    $('#modalBlogPost .blog-post-modal-date').text(item.date || '');
+    $('#modalBlogPost .blog-post-modal-img').attr('src', imgSrc).attr('alt', item.title || '');
+    const body = item.content && item.content.trim() ? paragraphsHtml(item.content) : paragraphsHtml(item.excerpt);
+    $('#modalBlogPost .blog-post-modal-content').html(body);
+    $('#modalBlogPost').modal('show');
+  }
+
   function renderBlogs(items) {
     const $container = $('.articles-row');
     if (!$container.length) return;
@@ -102,9 +119,9 @@
     items.forEach(function (item, index) {
       const imgSrc = 'assets/img/blog/blog-' + item.id + '.jpg';
       const delay = 800 + index * 200;
-      $container.append(
+      const $col = $(
         '<div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-duration="' + delay + '">' +
-          '<div class="article-card">' +
+          '<div class="article-card" role="button" tabindex="0">' +
             '<div class="article-img"><img src="' + imgSrc + '" alt="' + escapeHtml(item.title) + '"></div>' +
             '<div class="space16"></div>' +
             '<div class="article-text">' +
@@ -120,6 +137,15 @@
           '</div>' +
         '</div>'
       );
+      const $card = $col.find('.article-card');
+      $card.on('click', function () { openBlogModal(item, imgSrc); });
+      $card.on('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openBlogModal(item, imgSrc);
+        }
+      });
+      $container.append($col);
     });
   }
 

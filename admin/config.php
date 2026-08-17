@@ -118,7 +118,8 @@ function bh_section_schema(): array
             'fields' => [
                 'date'    => ['label' => 'Date', 'type' => 'text', 'maxlength' => 50],
                 'title'   => ['label' => 'Title', 'type' => 'text', 'maxlength' => 200],
-                'excerpt' => ['label' => 'Excerpt', 'type' => 'textarea', 'maxlength' => 500],
+                'excerpt' => ['label' => 'Excerpt (shown on the card)', 'type' => 'textarea', 'maxlength' => 500],
+                'content' => ['label' => 'Full article (shown when a reader clicks the card — separate paragraphs with a blank line)', 'type' => 'textarea', 'maxlength' => 20000],
             ],
         ],
     ];
@@ -152,10 +153,18 @@ function bh_write_content(array $data): bool
         return false;
     }
     $tmpPath = CONTENT_JSON_PATH . '.tmp-' . bin2hex(random_bytes(4));
-    if (file_put_contents($tmpPath, $json) === false) {
+    if (@file_put_contents($tmpPath, $json) === false) {
+        $err = error_get_last();
+        error_log('bh_write_content: could not write ' . $tmpPath . ': ' . ($err['message'] ?? 'unknown error'));
         return false;
     }
-    return rename($tmpPath, CONTENT_JSON_PATH);
+    if (!@rename($tmpPath, CONTENT_JSON_PATH)) {
+        $err = error_get_last();
+        error_log('bh_write_content: rename failed ' . $tmpPath . ' -> ' . CONTENT_JSON_PATH . ': ' . ($err['message'] ?? 'unknown error'));
+        @unlink($tmpPath);
+        return false;
+    }
+    return true;
 }
 
 function bh_sanitize_text(string $value, int $maxLen): string
@@ -181,14 +190,18 @@ function bh_process_image_upload(array $file, string $section, int $id)
     if (($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
         return null; // no file provided — not an error, caller decides if that's OK
     }
+    if ($file['error'] === UPLOAD_ERR_INI_SIZE || $file['error'] === UPLOAD_ERR_FORM_SIZE) {
+        return 'Image is too large. Max ' . (int) (MAX_UPLOAD_BYTES / 1024 / 1024) . ' MB per photo.';
+    }
     if ($file['error'] !== UPLOAD_ERR_OK) {
-        return 'Upload failed (error code ' . $file['error'] . ').';
+        error_log('bh_process_image_upload: PHP upload error code ' . $file['error'] . " for section=$section id=$id");
+        return 'Upload failed (error code ' . $file['error'] . '). Check the PHP-FPM error log for details.';
     }
     if (!is_uploaded_file($file['tmp_name'])) {
         return 'Invalid upload.';
     }
     if ($file['size'] > MAX_UPLOAD_BYTES) {
-        return 'Image is larger than 5 MB.';
+        return 'Image is larger than ' . (int) (MAX_UPLOAD_BYTES / 1024 / 1024) . ' MB.';
     }
 
     $info = @getimagesize($file['tmp_name']);
@@ -223,18 +236,32 @@ function bh_process_image_upload(array $file, string $section, int $id)
     imagedestroy($srcImage);
 
     $sectionDir = CONTENT_IMG_DIR . '/' . $section;
-    if (!is_dir($sectionDir)) {
-        @mkdir($sectionDir, 0755, true);
+    if (!is_dir($sectionDir) && !@mkdir($sectionDir, 0755, true) && !is_dir($sectionDir)) {
+        $err = error_get_last();
+        error_log('bh_process_image_upload: mkdir failed for ' . $sectionDir . ': ' . ($err['message'] ?? 'unknown error'));
+        return 'Could not create ' . $section . ' image folder on the server — check that the web server user can write to assets/img/.';
     }
+    if (!is_writable($sectionDir)) {
+        error_log('bh_process_image_upload: ' . $sectionDir . ' is not writable by the PHP process (owner/permissions issue).');
+        return 'The server cannot write to assets/img/' . $section . '/ — check its file permissions/ownership (must be writable by the web server user, e.g. www-data).';
+    }
+
     $destPath = $sectionDir . '/' . $section . '-' . $id . '.jpg';
     $tmpDest = $destPath . '.tmp-' . bin2hex(random_bytes(4));
 
-    $ok = imagejpeg($flat, $tmpDest, 88);
+    $ok = @imagejpeg($flat, $tmpDest, 88);
     imagedestroy($flat);
 
-    if (!$ok || !rename($tmpDest, $destPath)) {
+    if (!$ok) {
+        $err = error_get_last();
+        error_log('bh_process_image_upload: imagejpeg failed writing ' . $tmpDest . ': ' . ($err['message'] ?? 'unknown error'));
+        return 'Could not write the image file on the server (see PHP-FPM error log).';
+    }
+    if (!@rename($tmpDest, $destPath)) {
+        $err = error_get_last();
+        error_log('bh_process_image_upload: rename failed ' . $tmpDest . ' -> ' . $destPath . ': ' . ($err['message'] ?? 'unknown error'));
         @unlink($tmpDest);
-        return 'Could not save the image on the server.';
+        return 'Could not finalize the saved image on the server (see PHP-FPM error log).';
     }
 
     return true;

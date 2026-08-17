@@ -118,6 +118,11 @@
 	border-radius: 4px;
 	overflow: hidden;
 	transition: all 0.4s ease-in-out;
+	cursor: pointer;
+}
+.article-card:focus-visible {
+	outline: 2px solid #A87C2D;
+	outline-offset: 2px;
 }
 .article-img {
 	height: 220px;
@@ -161,6 +166,32 @@
 	font-weight: 400;
 	color: #090D14;
 	opacity: 0.7;
+}
+
+/* Shared blog-post detail modal */
+#modalBlogPost .blog-post-modal-img {
+	width: 100%;
+	max-height: 320px;
+	object-fit: cover;
+	border-radius: 6px;
+	margin-bottom: 16px;
+}
+#modalBlogPost .blog-post-modal-date {
+	font-family: "IBM Plex Sans", sans-serif;
+	font-size: 14px;
+	color: #A87C2D;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+#modalBlogPost .blog-post-modal-content p {
+	font-family: "IBM Plex Sans", sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	color: #090D14;
+	margin-bottom: 16px;
+}
+[data-theme="dark"] #modalBlogPost .blog-post-modal-content p {
+	color: #F2EEE7;
 }
 
 /* Videos section — deliberately dark/cinematic (fixed palette, like the CTA

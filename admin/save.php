@@ -9,6 +9,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// If the request body was bigger than PHP's post_max_size, PHP silently
+// empties $_POST and $_FILES instead of raising a normal error — without
+// this check we'd proceed with "no items posted" and happily overwrite
+// content.json with nothing. Content-Length still reflects the real size.
+$contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
+if (empty($_POST) && empty($_FILES) && $contentLength > 0) {
+    error_log('save.php: request body (' . $contentLength . ' bytes) exceeded post_max_size — $_POST/$_FILES came back empty.');
+    bh_set_flash('error', 'The upload was too large for the server to accept (nothing was changed). Try uploading fewer or smaller photos at once, or ask your host to raise post_max_size / upload_max_filesize in php.ini.');
+    header('Location: /admin/');
+    exit;
+}
+
 if (!bh_verify_csrf($_POST['csrf_token'] ?? null)) {
     bh_set_flash('error', 'Your session expired. Please try again.');
     header('Location: /admin/');
@@ -112,7 +124,7 @@ if ($errors) {
 }
 
 if (!bh_write_content($result)) {
-    bh_set_flash('error', 'Could not write content.json — check the assets/data folder is writable by the web server.');
+    bh_set_flash('error', 'Could not write content.json — check that assets/data/ is writable by the web server user (see the PHP-FPM error log for the exact reason).');
     header('Location: /admin/');
     exit;
 }

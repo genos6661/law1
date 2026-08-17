@@ -974,6 +974,26 @@ We uphold the highest standards of excellence, ensuring every client receives fa
   </div>
 </div>
 
+<!-- Shared modal reused for every blog post — content-loader.js fills it in on click. -->
+<div class="modal fade" id="modalBlogPost" tabindex="-1" aria-labelledby="modalBlogPostLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="modalBlogPostLabel"></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="blog-post-modal-img" src="" alt="">
+        <div class="blog-post-modal-date"></div>
+        <div class="blog-post-modal-content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script defer src="https://chatbot.thebrotherhoodlaw.com/widget.js"
   data-api-key="sk_live_271a49307d3c3f2b7136dd22347eac2112cf9ce63fa9199f">
 </script>
