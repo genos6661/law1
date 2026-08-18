@@ -193,6 +193,17 @@
 [data-theme="dark"] #modalBlogPost .blog-post-modal-content p {
 	color: #F2EEE7;
 }
+#modalBlogPost .blog-post-modal-extra-photos {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+#modalBlogPost .blog-post-modal-extra-photos img {
+	width: calc(33.333% - 7px);
+	height: 110px;
+	object-fit: cover;
+	border-radius: 6px;
+}
 
 /* Videos section — deliberately dark/cinematic (fixed palette, like the CTA
    and Contact sections) so it reads as clearly distinct from the Blog

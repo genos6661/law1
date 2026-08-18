@@ -89,6 +89,13 @@
     });
   }
 
+  function formatDate(isoDate) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(isoDate || ''))) return isoDate || '';
+    const parts = isoDate.split('-').map(Number);
+    const d = new Date(parts[0], parts[1] - 1, parts[2]);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
   function paragraphsHtml(text) {
     const blocks = String(text || '').split(/\n\s*\n/).map(function (p) { return p.trim(); }).filter(Boolean);
     if (!blocks.length) return '';
@@ -99,10 +106,21 @@
 
   function openBlogModal(item, imgSrc) {
     $('#modalBlogPostLabel').text(item.title || '');
-    $('#modalBlogPost .blog-post-modal-date').text(item.date || '');
+    $('#modalBlogPost .blog-post-modal-date').text(formatDate(item.date));
     $('#modalBlogPost .blog-post-modal-img').attr('src', imgSrc).attr('alt', item.title || '');
     const body = item.content && item.content.trim() ? paragraphsHtml(item.content) : paragraphsHtml(item.excerpt);
     $('#modalBlogPost .blog-post-modal-content').html(body);
+
+    // Up to 3 extra photos (assets/img/blog/blog-{id}-2.jpg .. -4.jpg). Their
+    // existence isn't tracked in content.json, so just try loading each and
+    // drop the ones that 404.
+    const $extra = $('#modalBlogPost .blog-post-modal-extra-photos').empty();
+    [2, 3, 4].forEach(function (slot) {
+      const $img = $('<img>').attr('src', 'assets/img/blog/blog-' + item.id + '-' + slot + '.jpg').attr('alt', '');
+      $img.on('error', function () { $(this).remove(); });
+      $extra.append($img);
+    });
+
     $('#modalBlogPost').modal('show');
   }
 
@@ -127,7 +145,7 @@
             '<div class="article-text">' +
               '<div class="date">' +
                 '<span><img src="assets/img/icons/calender.svg" alt=""></span>' +
-                '<span class="article-date-text">' + escapeHtml(item.date) + '</span>' +
+                '<span class="article-date-text">' + escapeHtml(formatDate(item.date)) + '</span>' +
               '</div>' +
               '<div class="space16"></div>' +
               '<h3>' + escapeHtml(item.title) + '</h3>' +
