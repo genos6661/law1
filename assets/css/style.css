@@ -205,31 +205,12 @@
 	border-radius: 6px;
 }
 
-/* Videos section — deliberately dark/cinematic (fixed palette, like the CTA
-   and Contact sections) so it reads as clearly distinct from the Blog
-   section right above it, in both light and dark site theme. */
+/* Videos section — follows the site theme like every other section (light:
+   master.css default; dark: the shared dark-mode palette, see the
+   [data-theme="dark"] .blog5-section-area rules below), instead of being
+   forced to a fixed dark palette regardless of theme. */
 .blog5-section-area {
-	background: #14161B;
 	scroll-margin-top: 90px;
-}
-.blog5-section-area .blog5-header span.about {
-	background: rgba(255, 255, 255, 0.08);
-	color: #D9A857;
-}
-.blog5-section-area .blog5-header h2 {
-	color: #fff;
-}
-.blog5-section-area .blog5-boxarea .blog-img {
-	border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.blog5-section-area .blog5-boxarea .blog-text .date a {
-	color: #9C97A8;
-}
-.blog5-section-area .blog5-boxarea .blog-text a {
-	color: #fff;
-}
-.blog5-section-area .blog5-boxarea .blog-text .date img {
-	filter: invert(1) brightness(1.6);
 }
 .video-play-icon {
 	position: absolute;
@@ -253,6 +234,13 @@
 .blog5-section-area .blog5-boxarea:hover .video-play-icon {
 	transform: translate(-50%, -50%) scale(1.15);
 	background: #A87C2D;
+}
+.blog5-section-area .blog5-boxarea {
+	cursor: pointer;
+}
+.blog5-section-area .blog5-boxarea:focus-visible {
+	outline: 3px solid #A87C2D;
+	outline-offset: 3px;
 }
 
 .contact4-section-area {
@@ -462,6 +450,30 @@
 	filter: invert(1);
 }
 
+/* Videos section */
+[data-theme="dark"] .blog5-section-area {
+	background: #1A1A1A;
+}
+[data-theme="dark"] .blog5-section-area .blog5-header span.about {
+	background: #2A2620;
+}
+[data-theme="dark"] .blog5-section-area .blog5-header h2 {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text .date a {
+	color: #F2EEE7;
+	opacity: 0.7;
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text a {
+	color: #F2EEE7;
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-text .date img {
+	filter: invert(1) brightness(1.6);
+}
+[data-theme="dark"] .blog5-section-area .blog5-boxarea .blog-img {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* Contact form card (the outer gold contact4-section-area itself is left as-is) */
 [data-theme="dark"] .contact4-section-area .contact-form-area {
 	background: #1E1E1E;
@@ -509,4 +521,95 @@
 }
 [data-theme="dark"] .modal .btn-close {
 	filter: invert(1);
+}
+
+/* ==========================================================================
+   UI/UX pass — accessibility, touch targets, reduced motion, form semantics
+   ========================================================================== */
+
+/* Respect prefers-reduced-motion: skip straight to the AOS end-state instead
+   of animating, and stop the decorative autoplaying videos (JS also pauses
+   them — this is the CSS-only fallback if JS is slow/blocked). */
+@media (prefers-reduced-motion: reduce) {
+	[data-aos] {
+		transform: none !important;
+		transition: none !important;
+		animation: none !important;
+		opacity: 1 !important;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Touch targets — bump the smallest controls up to the 44x44 minimum
+   without touching their vendor CSS (master.css / mobile-menu.css). */
+.theme-toggle-btn {
+	width: 44px;
+	height: 44px;
+}
+.testimonial5-section-area .testimonial-arrows .testimonial-prev-arrow button,
+.testimonial5-section-area .testimonial-arrows .testimonial-next-arrow button {
+	width: 44px;
+	height: 44px;
+	line-height: 44px;
+}
+.mobile-nav-icon {
+	width: 44px;
+	height: 44px;
+	cursor: pointer;
+	background: none;
+	padding: 0;
+	font: inherit;
+}
+.menu-close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	background: none;
+	border: none;
+}
+
+/* Contact form: labels replace the old plain <h4> so screen readers can
+   associate each field with its label (for/id). Same visual style as the
+   h4 they replace, just also usable as a label. */
+.contact-input-area label {
+	display: block;
+	font-family: "Crimson Text", serif;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 600;
+	color: #1A1E25;
+}
+[data-theme="dark"] .contact4-section-area .contact-form-area .contact-input-area label {
+	color: #F2EEE7;
+}
+.contact-input-area .field-error {
+	display: none;
+	color: #C0392B;
+	font-size: 13px;
+	margin-top: 6px;
+}
+.contact-input-area.has-error input,
+.contact-input-area.has-error textarea {
+	border-color: #C0392B;
+}
+.contact-input-area.has-error .field-error {
+	display: block;
+}
+#contactForm button[type="submit"] {
+	border: none;
+	font: inherit;
+}
+#contactForm button[type="submit"]:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
 }
